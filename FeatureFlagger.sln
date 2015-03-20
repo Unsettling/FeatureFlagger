@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger", "FeatureFlagger\FeatureFlagger.csproj", "{94AB9B20-2C65-46CF-81AB-87A556689515}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger.Tests", "FeatureFlagger.Tests\FeatureFlagger.Tests.csproj", "{3ED2F13E-4384-4B56-897B-CA8D2DC5D81B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger.Example.Console", "FeatureFlagger.Example.Console\FeatureFlagger.Example.Console.csproj", "{5AEEB78E-2A8C-4A3C-B791-0E265F35BA39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94AB9B20-2C65-46CF-81AB-87A556689515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94AB9B20-2C65-46CF-81AB-87A556689515}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94AB9B20-2C65-46CF-81AB-87A556689515}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94AB9B20-2C65-46CF-81AB-87A556689515}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ED2F13E-4384-4B56-897B-CA8D2DC5D81B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ED2F13E-4384-4B56-897B-CA8D2DC5D81B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ED2F13E-4384-4B56-897B-CA8D2DC5D81B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ED2F13E-4384-4B56-897B-CA8D2DC5D81B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AEEB78E-2A8C-4A3C-B791-0E265F35BA39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AEEB78E-2A8C-4A3C-B791-0E265F35BA39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AEEB78E-2A8C-4A3C-B791-0E265F35BA39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AEEB78E-2A8C-4A3C-B791-0E265F35BA39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
