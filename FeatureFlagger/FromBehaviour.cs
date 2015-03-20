@@ -4,9 +4,9 @@
 
     public class FromBehaviour : IBehaviour
     {
-        public Func<string, bool> Behaviour()
+        public Func<string[], bool> Behaviour()
         {
-            return x => Convert.ToDateTime(x).Date >= DateTime.UtcNow.Date;
+            return x => DateTime.UtcNow.Date >= DateTime.Parse(x[0]).Date;
         }
     }
 }

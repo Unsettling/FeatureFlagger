@@ -4,6 +4,6 @@
 
     public interface IBehaviour
     {
-        Func<string, bool> Behaviour();
+        Func<string[], bool> Behaviour();
     }
 }

@@ -2,11 +2,11 @@
 {
     using System;
 
-    public class EnabledBehaviour : IBehaviour
+    public class UntilBehaviour : IBehaviour
     {
         public Func<string[], bool> Behaviour()
         {
-            return x => Convert.ToBoolean(x[0]);
+            return x => DateTime.UtcNow.Date <= DateTime.Parse(x[0]).Date;
         }
     }
 }

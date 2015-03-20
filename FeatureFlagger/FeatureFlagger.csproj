@@ -40,7 +40,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConfigReader.cs" />
+    <Compile Include="IUser.cs" />
+    <Compile Include="RolloutBehaviour.cs" />
     <Compile Include="EnabledBehaviour.cs" />
+    <Compile Include="UntilBehaviour.cs" />
     <Compile Include="FromBehaviour.cs" />
     <Compile Include="IBehaviour.cs" />
     <Compile Include="IConfigurationReader.cs" />
