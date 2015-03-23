@@ -40,8 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigurationReader\AppConfigReader.cs" />
-    <Compile Include="ConfigurationReader\FeaturesSection.cs" />
+    <Compile Include="ConfigurationReaders\AppConfigReader.cs" />
+    <Compile Include="ConfigurationReaders\FeaturesSection.cs" />
     <Compile Include="Feature.cs" />
     <Compile Include="Flag.cs" />
     <Compile Include="IUser.cs" />
