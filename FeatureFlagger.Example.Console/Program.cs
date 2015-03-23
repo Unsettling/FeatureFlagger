@@ -11,6 +11,8 @@
                  toggle.IsEnabled(reader)
                  ? "Enabled."
                  : "Disabled.");
+
+             System.Console.ReadKey();
          }
     }
 }

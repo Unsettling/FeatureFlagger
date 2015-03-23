@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,16 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppConfigReader.cs" />
+    <Compile Include="ConfigurationReader\AppConfigReader.cs" />
+    <Compile Include="ConfigurationReader\FeaturesSection.cs" />
+    <Compile Include="Feature.cs" />
+    <Compile Include="Flag.cs" />
     <Compile Include="IUser.cs" />
-    <Compile Include="RolloutBehaviour.cs" />
-    <Compile Include="EnabledBehaviour.cs" />
-    <Compile Include="UntilBehaviour.cs" />
-    <Compile Include="FromBehaviour.cs" />
+    <Compile Include="Behaviours\RolloutBehaviour.cs" />
+    <Compile Include="Behaviours\EnabledBehaviour.cs" />
+    <Compile Include="Behaviours\UntilBehaviour.cs" />
+    <Compile Include="Behaviours\FromBehaviour.cs" />
     <Compile Include="IBehaviour.cs" />
     <Compile Include="IConfigurationReader.cs" />
     <Compile Include="IToggle.cs" />
-    <Compile Include="ToggleExtensions.cs" />
+    <Compile Include="Extensions\ToggleExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
