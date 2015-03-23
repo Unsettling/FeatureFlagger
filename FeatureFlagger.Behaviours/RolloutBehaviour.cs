@@ -1,10 +1,12 @@
-﻿namespace FeatureFlagger
+﻿namespace FeatureFlagger.Behaviours
 {
     using System;
     using System.Collections.Generic;
+    using System.Composition;
     using System.Globalization;
 
     // idea lifted from Togglz.
+    [Export(typeof(IBehaviour))]
     public class RolloutBehaviour : IBehaviour, IUser
     {
         public Func<Dictionary<string, string>, bool> Behaviour()

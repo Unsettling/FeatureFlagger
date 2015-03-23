@@ -1,9 +1,11 @@
-﻿namespace FeatureFlagger
+﻿namespace FeatureFlagger.ConfigurationReaders
 {
     using System;
     using System.Collections.Generic;
+    using System.Composition;
     using System.Configuration;
 
+    [Export(typeof(IConfigurationReader))]
     public class AppConfigReader : IConfigurationReader
     {
         public Feature Read(string name)

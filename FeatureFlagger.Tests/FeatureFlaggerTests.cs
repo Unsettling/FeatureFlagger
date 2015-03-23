@@ -11,12 +11,12 @@
         public void ShouldUseToggle()
         {
             var toggle = Substitute.For<IToggle>();
-            var reader = Substitute.For<IConfigurationReader>();
+//            var reader = Substitute.For<IConfigurationReader>();
             var properties = new Dictionary<string, string> { { "enabled", "true" } };
             var flag = new Flag { Name = "Enabled", Properties = properties };
             var feature = new Feature { Name = "example", Flags = new List<Flag> { flag } };
-            reader.Read(null).ReturnsForAnyArgs(feature);
-            toggle.IsEnabled(reader).ShouldBeTrue();
+//            reader.Read(null).ReturnsForAnyArgs(feature);
+            toggle.IsEnabled().ShouldBeTrue();
         }
     }
 }

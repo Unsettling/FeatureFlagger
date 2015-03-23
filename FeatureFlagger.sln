@@ -14,6 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		FeatureFlagger.xsd = FeatureFlagger.xsd
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger.Behaviours", "FeatureFlagger.Behaviours\FeatureFlagger.Behaviours.csproj", "{16BEB681-311E-44A0-8BF9-E95A996F25BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger.ConfigurationReaders", "FeatureFlagger.ConfigurationReaders\FeatureFlagger.ConfigurationReaders.csproj", "{3BD4262E-51D4-4F29-BD07-3F51560E3B9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +36,14 @@ Global
 		{5AEEB78E-2A8C-4A3C-B791-0E265F35BA39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AEEB78E-2A8C-4A3C-B791-0E265F35BA39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AEEB78E-2A8C-4A3C-B791-0E265F35BA39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16BEB681-311E-44A0-8BF9-E95A996F25BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16BEB681-311E-44A0-8BF9-E95A996F25BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16BEB681-311E-44A0-8BF9-E95A996F25BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16BEB681-311E-44A0-8BF9-E95A996F25BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BD4262E-51D4-4F29-BD07-3F51560E3B9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BD4262E-51D4-4F29-BD07-3F51560E3B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BD4262E-51D4-4F29-BD07-3F51560E3B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BD4262E-51D4-4F29-BD07-3F51560E3B9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

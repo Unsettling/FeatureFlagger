@@ -1,4 +1,4 @@
-namespace FeatureFlagger
+namespace FeatureFlagger.Behaviours
 {
     public interface IUser
     {

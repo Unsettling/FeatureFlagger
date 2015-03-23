@@ -1,13 +1,19 @@
 ﻿namespace FeatureFlagger
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
 
     public static class ToggleExtensions
     {
-        public static bool IsEnabled(this IToggle toggle, IConfigurationReader reader)
+//        public static IEnumerable<IBehaviour> Behaviours { get; set; } 
+
+        public static bool IsEnabled(this IToggle toggle)
         {
+/*
+            var reader = new AppConfigReader();
+
             // use type name to look up feature flags.
             var feature = reader.Read(toggle.GetType().Name);
 
@@ -23,6 +29,8 @@
                         let func = behaviour.Behaviour()
                         where func(flag.Properties) == false
                         select flag).Any();
+*/
+            return true;
         }
     }
 }

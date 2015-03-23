@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{94AB9B20-2C65-46CF-81AB-87A556689515}</ProjectGuid>
+    <ProjectGuid>{3BD4262E-51D4-4F29-BD07-3F51560E3B9C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FeatureFlagger</RootNamespace>
-    <AssemblyName>FeatureFlagger</AssemblyName>
+    <RootNamespace>FeatureFlagger.ConfigurationReaders</RootNamespace>
+    <AssemblyName>FeatureFlagger.ConfigurationReaders</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -46,6 +46,7 @@
     <Reference Include="System.Composition.TypedParts">
       <HintPath>..\packages\Microsoft.Composition.1.0.30\lib\portable-net45+win8+wp8+wpa81\System.Composition.TypedParts.dll</HintPath>
     </Reference>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -54,10 +55,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Feature.cs" />
-    <Compile Include="Flag.cs" />
-    <Compile Include="IToggle.cs" />
-    <Compile Include="ToggleExtensions.cs" />
+    <Compile Include="AppConfigReader.cs" />
+    <Compile Include="FeaturesSection.cs" />
+    <Compile Include="IConfigurationReader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FeatureFlagger\FeatureFlagger.csproj">
+      <Project>{94ab9b20-2c65-46cf-81ab-87a556689515}</Project>
+      <Name>FeatureFlagger</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

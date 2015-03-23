@@ -5,10 +5,9 @@
          public static void Main(string[] args)
          {
              var toggle = new ExampleFeatureFlag();
-             var reader = new AppConfigReader();
 
              System.Console.WriteLine(
-                 toggle.IsEnabled(reader)
+                 toggle.IsEnabled()
                  ? "Enabled."
                  : "Disabled.");
 

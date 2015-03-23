@@ -1,8 +1,10 @@
-﻿namespace FeatureFlagger
+﻿namespace FeatureFlagger.Behaviours
 {
     using System;
     using System.Collections.Generic;
+    using System.Composition;
 
+    [Export(typeof(IBehaviour))]
     public class UntilBehaviour : IBehaviour
     {
         public Func<Dictionary<string, string>, bool> Behaviour()

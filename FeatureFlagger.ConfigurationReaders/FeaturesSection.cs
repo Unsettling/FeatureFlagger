@@ -1,4 +1,4 @@
-namespace FeatureFlagger
+namespace FeatureFlagger.ConfigurationReaders
 {
     using System;
     using System.Collections.Generic;
