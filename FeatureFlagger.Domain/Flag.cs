@@ -1,4 +1,4 @@
-﻿namespace FeatureFlagger
+﻿namespace FeatureFlagger.Domain
 {
     using System.Collections.Generic;
 

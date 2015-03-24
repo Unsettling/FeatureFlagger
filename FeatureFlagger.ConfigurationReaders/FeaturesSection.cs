@@ -7,6 +7,8 @@ namespace FeatureFlagger.ConfigurationReaders
     using System.Linq;
     using System.Xml;
 
+    using FeatureFlagger.Domain;
+
     public class FeaturesSection : IConfigurationSectionHandler
     {
         public object Create(object parent, object configContext, XmlNode section)

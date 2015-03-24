@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger.Behaviours",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger.ConfigurationReaders", "FeatureFlagger.ConfigurationReaders\FeatureFlagger.ConfigurationReaders.csproj", "{3BD4262E-51D4-4F29-BD07-3F51560E3B9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger.Domain", "FeatureFlagger.Domain\FeatureFlagger.Domain.csproj", "{87E475C1-6B3D-4F6D-A57F-47F3D40CE8FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{3BD4262E-51D4-4F29-BD07-3F51560E3B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BD4262E-51D4-4F29-BD07-3F51560E3B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BD4262E-51D4-4F29-BD07-3F51560E3B9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87E475C1-6B3D-4F6D-A57F-47F3D40CE8FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87E475C1-6B3D-4F6D-A57F-47F3D40CE8FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87E475C1-6B3D-4F6D-A57F-47F3D40CE8FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87E475C1-6B3D-4F6D-A57F-47F3D40CE8FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,6 +5,8 @@
     using System.Composition;
     using System.Configuration;
 
+    using FeatureFlagger.Domain;
+
     [Export(typeof(IConfigurationReader))]
     public class AppConfigReader : IConfigurationReader
     {

@@ -2,6 +2,8 @@
 {
     using System.Collections.Generic;
 
+    using FeatureFlagger.Domain;
+
     using NSubstitute;
 
     using Should;

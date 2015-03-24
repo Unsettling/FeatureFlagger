@@ -59,13 +59,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExampleFeatureFlag.cs" />
     <Compile Include="FeatureFlaggerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FeatureFlagger.Domain\FeatureFlagger.Domain.csproj">
+      <Project>{87e475c1-6b3d-4f6d-a57f-47f3d40ce8ff}</Project>
+      <Name>FeatureFlagger.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FeatureFlagger\FeatureFlagger.csproj">
       <Project>{94AB9B20-2C65-46CF-81AB-87A556689515}</Project>
       <Name>FeatureFlagger</Name>

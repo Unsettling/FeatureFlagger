@@ -54,8 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Feature.cs" />
-    <Compile Include="Flag.cs" />
     <Compile Include="IToggle.cs" />
     <Compile Include="ToggleExtensions.cs" />
   </ItemGroup>
@@ -64,6 +62,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FeatureFlagger.Behaviours\FeatureFlagger.Behaviours.csproj">
+      <Project>{16beb681-311e-44a0-8bf9-e95a996f25bb}</Project>
+      <Name>FeatureFlagger.Behaviours</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FeatureFlagger.ConfigurationReaders\FeatureFlagger.ConfigurationReaders.csproj">
+      <Project>{3bd4262e-51d4-4f29-bd07-3f51560e3b9c}</Project>
+      <Name>FeatureFlagger.ConfigurationReaders</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FeatureFlagger.Domain\FeatureFlagger.Domain.csproj">
+      <Project>{87e475c1-6b3d-4f6d-a57f-47f3d40ce8ff}</Project>
+      <Name>FeatureFlagger.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

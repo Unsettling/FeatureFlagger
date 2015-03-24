@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5AEEB78E-2A8C-4A3C-B791-0E265F35BA39}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{87E475C1-6B3D-4F6D-A57F-47F3D40CE8FF}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FeatureFlagger.Example.Console</RootNamespace>
-    <AssemblyName>FeatureFlagger.Example.Console</AssemblyName>
+    <RootNamespace>FeatureFlagger.Domain</RootNamespace>
+    <AssemblyName>FeatureFlagger.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,17 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExampleFeatureFlag.cs" />
-    <Compile Include="Program.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FeatureFlagger\FeatureFlagger.csproj">
-      <Project>{94AB9B20-2C65-46CF-81AB-87A556689515}</Project>
-      <Name>FeatureFlagger</Name>
-    </ProjectReference>
+    <Compile Include="Feature.cs" />
+    <Compile Include="Flag.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

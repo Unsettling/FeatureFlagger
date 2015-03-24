@@ -1,5 +1,7 @@
-﻿namespace FeatureFlagger
+﻿namespace FeatureFlagger.ConfigurationReaders
 {
+    using FeatureFlagger.Domain;
+
     public interface IConfigurationReader
     {
         /// <summary>
