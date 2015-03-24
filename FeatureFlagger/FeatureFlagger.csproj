@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FeatureFlagFactory.cs" />
     <Compile Include="IToggle.cs" />
     <Compile Include="ToggleExtensions.cs" />
   </ItemGroup>
