@@ -1,19 +1,22 @@
 ﻿namespace FeatureFlagger
 {
-    using System;
     using System.Collections.Generic;
     using System.Composition;
     using System.Composition.Hosting;
     using System.Reflection;
 
-    using FeatureFlagger.Behaviours;
-    using FeatureFlagger.ConfigurationReaders;
+    using global::FeatureFlagger.Behaviours;
+    using global::FeatureFlagger.ConfigurationReaders;
 
-    // TODO: maybe factory isn't useful and it should be 'InitialiseFF' class ...
-    public class FeatureFlagFactory
+    public class FeatureFlagger
     {
-        // TODO: is this an abuse of the factory? Having a constructor?
-        public FeatureFlagFactory()
+        // Gary McGill's fancy footwork.
+        static FeatureFlagger()
+        {
+            Initialise();
+        }
+            
+        public FeatureFlagger()
         {
             var configuration =
                 new ContainerConfiguration()
@@ -28,16 +31,15 @@
             compositionHost.SatisfyImports(this);
         }
 
-        // TODO: that this is static is a bit smelly ...
         [ImportMany]
         public static IEnumerable<IBehaviour> Behaviours { get; set; }
 
         [Import]
         public static IConfigurationReader Reader { get; set; }
-        
-        public IToggle New(Func<IToggle> toggle)
+
+        public static void Initialise()
         {
-            return toggle();
+            var ff = new FeatureFlagger();
         }
     }
 }

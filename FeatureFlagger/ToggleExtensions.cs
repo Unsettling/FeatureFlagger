@@ -7,8 +7,8 @@
         public static bool IsEnabled(
             this IToggle toggle)
         {
-            var behaviours = FeatureFlagFactory.Behaviours.ToList();
-            var feature    = FeatureFlagFactory.Reader.Read(toggle.GetType().Name);
+            var behaviours = FeatureFlagger.Behaviours.ToList();
+            var feature    = FeatureFlagger.Reader.Read(toggle.GetType().Name);
 
             // TODO: exception handling.
             return !(from flag in feature.Flags

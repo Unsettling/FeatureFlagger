@@ -4,8 +4,7 @@
     {
          public static void Main(string[] args)
          {
-             var fff = new FeatureFlagFactory();
-             var toggle = fff.New(() => new ExampleFeatureFlag());
+             var toggle = new ExampleFeatureFlag();
 
              var isToggleEnabled = toggle.IsEnabled();
 

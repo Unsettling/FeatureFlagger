@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    using FeatureFlagger.Domain;
+    using global::FeatureFlagger.Domain;
 
     using NSubstitute;
 
