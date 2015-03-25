@@ -10,10 +10,12 @@
 
     public class FeatureFlagger
     {
-        // Gary McGill's fancy footwork.
         static FeatureFlagger()
         {
-            Initialise();
+            // fancy footwork here helps to load the MEF composition
+            // without requiring the user to instantiate the class themselves.
+            // (thanks, Gary).
+            var ff = new FeatureFlagger();
         }
             
         public FeatureFlagger()
@@ -36,10 +38,5 @@
 
         [Import]
         public static IConfigurationReader Reader { get; set; }
-
-        public static void Initialise()
-        {
-            var ff = new FeatureFlagger();
-        }
     }
 }
