@@ -47,6 +47,10 @@
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FeatureFlagger.ConfigurationReaders\FeatureFlagger.ConfigurationReaders.csproj">
+      <Project>{3BD4262E-51D4-4F29-BD07-3F51560E3B9C}</Project>
+      <Name>FeatureFlagger.ConfigurationReaders</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FeatureFlagger.Domain\FeatureFlagger.Domain.csproj">
       <Project>{87e475c1-6b3d-4f6d-a57f-47f3d40ce8ff}</Project>
       <Name>FeatureFlagger.Domain</Name>
