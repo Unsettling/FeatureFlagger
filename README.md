@@ -4,13 +4,8 @@ Yet Another Feature Flag (Feature Toggle / Feature Switch) implementation.
 ## Quickstart
 1. add to the `<features />` section in your .config the name of your feature and whether it is enabled or not.  
 
-```xml
+```XML
   <features>
-    <test enabled="true">
-      <from date="2015-03-20" />
-      <rollout percentage="25" basis="user" name="barndoor" />
-      <fullmoon />
-    </test>
     <example enabled="true">
       <from date="2015-03-20" />
     </example>
@@ -19,34 +14,34 @@ Yet Another Feature Flag (Feature Toggle / Feature Switch) implementation.
 
 2. create a class named after your feature that inherits from IFeatureFlag.  
 
-```
+```C#
     public class ExampleFeatureFlag : IFeatureFlag { }
 ```
 
 3. where you want to toggle a feature:  
   - instantiate your class (new it up) then  
 
-```
-             var featureFlag = new ExampleFeatureFlag();
+```C#
+    var featureFlag = new ExampleFeatureFlag();
 ```
 
   - call the 'IsEnabled()' extension method and
 
-```
-             var isFeatureFlagEnabled = featureFlag.IsEnabled();
+```C#
+    var isFeatureFlagEnabled = featureFlag.IsEnabled();
 ```
 
   - control the flow in your code.  
 
-```
-             System.Console.WriteLine(
-                 isFeatureFlagEnabled
-                 ? "Enabled."
-                 : "Disabled.");
+```C#
+    System.Console.WriteLine(
+        isFeatureFlagEnabled
+        ? "Enabled."
+        : "Disabled.");
 ```
 
 ## Activation Strategies (from, until, etc.)
-The activation strategies all implement IBehaviour which means they must implement a `Func<dictionary<string, string>, bool>` method. The behaviours return a method that takes a set of parameters (the dictionary) and tests them truth-ily (the Boolean). You can call as many behaviours as you like for a feature and they each much evaluate to true for the feature flag to be 'on'. Composing your chosen behaviours then becomes your feature's activation strategy.
+The activation strategies all implement IBehaviour which means they must implement a `Func<dictionary<string, string>, bool>` method. The behaviours return a method that takes a set of parameters (the dictionary) and tests them truth-ily (the Boolean). You can call as many behaviours as you like for a feature and they each must evaluate to true for the feature flag to be 'on'. Composing your chosen behaviours then becomes your feature's activation strategy.
 
 ## Extending the activation strategies
 If you want to create a new behaviour you just need to implement IBehaviour, add the MEF2 ExportAttribute and the library will pick it up. [TODO: sample]
@@ -55,9 +50,9 @@ If you want to create a new behaviour you just need to implement IBehaviour, add
 By default the library will read the settings for the feature flags from the .config of the application. This can be extended, however, by implementing the Read() method from IConfigurationReader. You could then read from your database, a web api or any kind of filesystem. [TODO: sample]
 
 ## Design Notes
-Some feature flaggers will default to disabled if the configuration for a toggle isn't found. This library considers that to be exceptional so it will throw if it can't configure a feature flag.
+Some other feature flaggers will default to disabled if the configuration for a flag isn't found. This library considers that to be exceptional so it will throw if it can't configure a feature flag.
 
-The `<features />` XML in the .config has a stylesheet that ignores the content of the element. This allows for the creation of any type of flag with any kind of properties. Lots of flexibility but you are saved from hanging yourself by the loading of the configuration throwing if it can't set up the feature flag in code.
+The `<features />` tag in the .config has a stylesheet that ignores the content of the element. This allows for the creation of any type of flag with any kind of properties. Lots of flexibility but you are saved from hanging yourself by the loading of the configuration throwing if it can't set up the feature flag in code.
 
 Instantiation of the feature flags is the correct way to get to .IsEnabled(). Don't add them to your IoC container, even though they inherit from an interface, as they aren't supposed to be part of your application's internal API.
 
