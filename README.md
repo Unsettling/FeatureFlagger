@@ -4,41 +4,41 @@ Yet Another Feature Flag (Feature Toggle / Feature Switch) implementation.
 ## Quickstart
 1. add to the `<features />` section in your .config the name of your feature and whether it is enabled or not.  
 
-```XML
-  <features>
-    <example enabled="true">
-      <from date="2015-03-20" />
-    </example>
-  </features>
-```
+  ```XML
+    <features>
+      <example enabled="true">
+        <from date="2015-03-20" />
+      </example>
+    </features>
+  ```
 
 2. create a class named after your feature that inherits from IFeatureFlag.  
 
-```C#
-    public class ExampleFeatureFlag : IFeatureFlag { }
-```
+  ```C#
+      public class ExampleFeatureFlag : IFeatureFlag { }
+  ```
 
 3. where you want to toggle a feature:  
-  - instantiate your class (new it up) then  
+  - instantiate your class (new it up)
 
-```C#
-    var featureFlag = new ExampleFeatureFlag();
-```
+  ```C#
+      var featureFlag = new ExampleFeatureFlag();
+  ```
 
-  - call the 'IsEnabled()' extension method and
+  - call the 'IsEnabled()' extension method
 
-```C#
-    var isFeatureFlagEnabled = featureFlag.IsEnabled();
-```
+  ```C#
+      var isFeatureFlagEnabled = featureFlag.IsEnabled();
+  ```
 
-  - control the flow in your code.  
+  - control the flow in your code
 
-```C#
-    System.Console.WriteLine(
-        isFeatureFlagEnabled
-        ? "Enabled."
-        : "Disabled.");
-```
+  ```C#
+      System.Console.WriteLine(
+          isFeatureFlagEnabled
+          ? "Enabled."
+          : "Disabled.");
+  ```
 
 ## Activation Strategies (from, until, etc.)
 The activation strategies all implement IBehaviour which means they must implement a `Func<dictionary<string, string>, bool>` method. The behaviours return a method that takes a set of parameters (the dictionary) and tests them truth-ily (the Boolean). You can call as many behaviours as you like for a feature and they each must evaluate to true for the feature flag to be 'on'. Composing your chosen behaviours then becomes your feature's activation strategy.
