@@ -4,12 +4,12 @@
     {
          public static void Main(string[] args)
          {
-             var toggle = new ExampleFeatureFlag();
+             var featureFlag = new ExampleFeatureFlag();
 
-             var isToggleEnabled = toggle.IsEnabled();
+             var isFeatureFlagEnabled = featureFlag.IsEnabled();
 
              System.Console.WriteLine(
-                 isToggleEnabled
+                 isFeatureFlagEnabled
                  ? "Enabled."
                  : "Disabled.");
 

@@ -55,8 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FeatureFlagger.cs" />
-    <Compile Include="IToggle.cs" />
-    <Compile Include="ToggleExtensions.cs" />
+    <Compile Include="IFeatureFlag.cs" />
+    <Compile Include="FeatureFlagExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

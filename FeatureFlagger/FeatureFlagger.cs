@@ -12,7 +12,7 @@
     {
         static FeatureFlagger()
         {
-            // fancy footwork here helps to load the MEF composition
+            // fancy footwork here helps to do the MEF composition
             // without requiring the user to instantiate the class themselves.
             // (thanks, Gary).
             var ff = new FeatureFlagger();

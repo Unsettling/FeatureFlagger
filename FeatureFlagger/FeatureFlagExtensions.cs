@@ -2,13 +2,13 @@
 {
     using System.Linq;
 
-    public static class ToggleExtensions
+    public static class FeatureFlagExtensions
     {
         public static bool IsEnabled(
-            this IToggle toggle)
+            this IFeatureFlag featureFlag)
         {
             var behaviours = FeatureFlagger.Behaviours.ToList();
-            var feature    = FeatureFlagger.Reader.Read(toggle.GetType().Name);
+            var feature    = FeatureFlagger.Reader.Read(featureFlag.GetType().Name);
 
             // TODO: exception handling.
             return !(from flag in feature.Flags
