@@ -1,17 +1,27 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
+    <id>FeatureFlagger</id>
     <version>0.0.1-alpha002</version>
     <title>Feature Flagger</title>
     <authors>Richard Bogle</authors>
     <owners>boggin</owners>
     <licenseUrl>https://github.com/Boggin/FeatureFlagger/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/Boggin/FeatureFlagger</projectUrl>
+    <iconUrl>https://github.com/Boggin/FeatureFlagger/blob/master/assets/flag-32x32.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Yet another Feature Flag (or Feature Toggle or Feature Switch) for your code.</description>
     <releaseNotes>alpha.</releaseNotes>
     <copyright>Copyright 2015</copyright>
     <tags>featureflagger feature flag toggle switch featureswitch featuretoggle featureflag</tags>
+    <dependencies>
+      <dependency id="Microsoft.Composition" version="1.0.30" />
+    </dependencies>
   </metadata>
+  <files>
+      <file src="FeatureFlagger\bin\Release\FeatureFlagger.Behaviours.dll" target="lib\net45\FeatureFlagger.Behaviours.dll" />
+      <file src="FeatureFlagger\bin\Release\FeatureFlagger.ConfigurationReaders.dll" target="lib\net45\FeatureFlagger.ConfigurationReaders.dll" />
+      <file src="FeatureFlagger\bin\Release\FeatureFlagger.dll" target="lib\net45\FeatureFlagger.dll" />
+      <file src="FeatureFlagger\bin\Release\FeatureFlagger.Domain.dll" target="lib\net45\FeatureFlagger.Domain.dll" />
+  </files>
 </package>
