@@ -12,7 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{80705188-61E3-4217-8242-1CD206CD152D}"
 	ProjectSection(SolutionItems) = preProject
 		.semver = .semver
-		FeatureFlagger\FeatureFlagger.nuspec = FeatureFlagger\FeatureFlagger.nuspec
+		FeatureFlagger.nuspec = FeatureFlagger.nuspec
 		FeatureFlagger.xsd = FeatureFlagger.xsd
 		README.md = README.md
 	EndProjectSection
