@@ -1,3 +1,4 @@
+![Image of Flag](https://github.com/Boggin/FeatureFlagger/blob/master/assets/flag-64x64.png)
 # FeatureFlagger
 Yet Another Feature Flag (Feature Toggle / Feature Switch) implementation.
 
