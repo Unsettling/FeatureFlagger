@@ -43,13 +43,16 @@ Yet Another Feature Flag (Feature Toggle / Feature Switch) implementation.
   ```
 
 ## Activation Strategies (from, until, etc.)
-The activation strategies all implement IBehaviour which means they must implement a `Func<dictionary<string, string>, bool>` method. The behaviours return a method that takes a set of parameters (the dictionary) and tests them truth-ily (the Boolean). You can call as many behaviours as you like for a feature and they each must evaluate to true for the feature flag to be 'on'. Composing your chosen behaviours then becomes your feature's activation strategy.
+The activation strategies all implement IBehaviour which means they must implement a `Func<dictionary<string, string>, bool>` method. The behaviours return this method that takes a set of parameters (the dictionary) and tests them truth-ily (the Boolean). You can call as many behaviours as you like for a feature and they each must evaluate to true for the feature flag to be 'on'. Composing your chosen behaviours then becomes your feature's activation strategy.
 
 ## Extending the activation strategies
 If you want to create a new behaviour you just need to implement IBehaviour, add the MEF2 ExportAttribute and the library will pick it up. [TODO: sample]
 
 ## Feature Flag configuration
 By default the library will read the settings for the feature flags from the .config of the application. This can be extended, however, by implementing the Read() method from IConfigurationReader. You could then read from your database, a web api or any kind of filesystem. [TODO: sample]
+
+## Conventions
+The name of your class must end in "FeatureFlag", i.e. "ExampleFeatureFlag.cs", so the code can read the type, remove the "FeatureFlag" sub-string and use the rest, i.e. "Example", to read from the configuration. If needs be this could be made configurable but convention is easier to deal with.
 
 ## Design Notes
 Some other feature flaggers will default to disabled if the configuration for a flag isn't found. This library considers that to be exceptional so it will throw if it can't configure a feature flag.
