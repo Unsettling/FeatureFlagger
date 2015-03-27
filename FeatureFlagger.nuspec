@@ -2,11 +2,11 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>0.0.1-alpha001</version>
+    <version>0.0.1-alpha002</version>
     <title>Feature Flagger</title>
     <authors>Richard Bogle</authors>
     <owners>boggin</owners>
-    <licenseUrl>http://mit-license.org/</licenseUrl>
+    <licenseUrl>https://github.com/Boggin/FeatureFlagger/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/Boggin/FeatureFlagger</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Yet another Feature Flag (or Feature Toggle or Feature Switch) for your code.</description>
