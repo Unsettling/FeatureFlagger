@@ -1,6 +1,7 @@
 NUGET
   remote: https://www.nuget.org/api/v2
   specs:
+    FeatureFlagger (0.0.1-alpha001)
     Fixie (1.0.0.11)
     Microsoft.Composition (1.0.30)
     NSubstitute (1.8.1.0)
