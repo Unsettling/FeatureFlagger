@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>FeatureFlagger</id>
-    <version>0.0.1-alpha002</version>
+    <version>0.0.1-alpha003</version>
     <title>Feature Flagger</title>
     <authors>Richard Bogle</authors>
     <owners>boggin</owners>
