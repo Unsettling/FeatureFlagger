@@ -20,6 +20,7 @@
             
         public FeatureFlagger()
         {
+            // TODO: suspect this may be a problem for picking up new behaviours ...
             var configuration =
                 new ContainerConfiguration()
                 .WithAssemblies(
