@@ -44,7 +44,6 @@
     <Compile Include="IFeatureFlag.cs" />
     <Compile Include="FeatureFlagExtensions.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="paket.references" />
   </ItemGroup>

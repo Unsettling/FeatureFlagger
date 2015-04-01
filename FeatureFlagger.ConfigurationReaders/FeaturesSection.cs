@@ -18,7 +18,7 @@ namespace FeatureFlagger.ConfigurationReaders
             foreach (XmlNode childNode in section.ChildNodes)
             {
                 var flag = EnabledFlag(childNode.Attributes);
-                var feature = new Feature { Name = childNode.Name };
+                var feature = new Feature { Name = childNode.Attributes.GetNamedItem("name").InnerText };
                 feature.Flags.Add(flag);
 
                 if (!childNode.HasChildNodes)
