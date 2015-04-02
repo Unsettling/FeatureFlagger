@@ -5,8 +5,8 @@
     using System.Composition.Hosting;
     using System.Reflection;
 
-    using global::FeatureFlagger.Behaviours;
-    using global::FeatureFlagger.ConfigurationReaders;
+    using Behaviours;
+    using ConfigurationReaders;
 
     public class FeatureFlagger
     {

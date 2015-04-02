@@ -2,7 +2,6 @@ source https://www.nuget.org/api/v2
 source https://www.myget.org/F/aspnetvnext
 source https://nuget.org/api/v2
 
-nuget Fixie 1.0.0.11
 nuget Microsoft.Composition 1.0.30
 nuget NSubstitute 1.8.1.0
 nuget Should 1.1.20

@@ -1,7 +1,6 @@
 NUGET
   remote: https://www.nuget.org/api/v2
   specs:
-    Fixie (1.0.0.11)
     Microsoft.Composition (1.0.30)
     NSubstitute (1.8.1.0)
     Should (1.1.20)

@@ -2,15 +2,17 @@
 {
     using System.Collections.Generic;
 
-    using global::FeatureFlagger.ConfigurationReaders;
-    using global::FeatureFlagger.Domain;
+    using ConfigurationReaders;
+    using Domain;
 
     using NSubstitute;
 
     using Should;
+    using Xunit;
 
     public class FeatureFlaggerTests
     {
+        [Fact]
         public void ShouldUseFlag()
         {
             var featureFlag = Substitute.For<IFeatureFlag>();
