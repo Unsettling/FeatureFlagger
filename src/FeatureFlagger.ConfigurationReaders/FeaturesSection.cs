@@ -2,14 +2,13 @@ namespace FeatureFlagger.ConfigurationReaders
 {
     using System;
     using System.Collections.Generic;
-    using System.Configuration;
     using System.Globalization;
     using System.Linq;
     using System.Xml;
 
     using FeatureFlagger.Domain;
 
-    public class FeaturesSection : IConfigurationSectionHandler
+    public class FeaturesSection
     {
         public object Create(object parent, object configContext, XmlNode section)
         {
@@ -38,8 +37,9 @@ namespace FeatureFlagger.ConfigurationReaders
                         .ToDictionary(attr => attr.Name, attr => attr.InnerText);
 
                     // title case is required when looking up Behaviours.
-                    var info = new CultureInfo("en-US", false).TextInfo;
-                    var name = info.ToTitleCase(node.Name);
+                    var info = new CultureInfo("en-US").TextInfo;
+                    // NOTE: this was ToTitleCase ...
+                    var name = info.ToLower(node.Name);
 
                     feature.Flags.Add(
                         new Flag

@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Composition;
-    using System.Configuration;
 
     using FeatureFlagger.Domain;
 
@@ -12,6 +11,7 @@
     {
         public Feature Read(string name)
         {
+            /*
             // read from App.config.
             var features = (List<Feature>)ConfigurationManager.GetSection("features");
 
@@ -19,6 +19,9 @@
             name = name.Replace("FeatureFlag", string.Empty);
 
             return features.Find(f => f.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
+            */
+            // NOTE: ConfigurationManager isn't in netstandard ...
+            return new Feature();
         }
     }
 }
