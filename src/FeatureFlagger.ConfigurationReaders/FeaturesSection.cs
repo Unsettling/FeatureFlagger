@@ -10,6 +10,7 @@ namespace FeatureFlagger.ConfigurationReaders
 
     public class FeaturesSection
     {
+        /*
         public object Create(object parent, object configContext, XmlNode section)
         {
             var features = new List<Feature>();
@@ -79,5 +80,6 @@ namespace FeatureFlagger.ConfigurationReaders
 
             return flag;
         }
+ */
     }
 }

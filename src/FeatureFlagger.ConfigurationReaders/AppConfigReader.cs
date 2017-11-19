@@ -21,7 +21,7 @@
             return features.Find(f => f.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
             */
             // NOTE: ConfigurationManager isn't in netstandard ...
-            return new Feature();
+            return new Feature("dummy");
         }
     }
 }
