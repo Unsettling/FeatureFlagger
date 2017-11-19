@@ -1,13 +1,10 @@
 ﻿namespace FeatureFlagger.Tests
 {
     using System.Collections.Generic;
-
     using ConfigurationReaders;
     using Domain;
-
     using NSubstitute;
-
-    using Should;
+    using Shouldly;
     using Xunit;
 
     public class FeatureFlaggerTests
@@ -18,9 +15,10 @@
             var featureFlag = Substitute.For<IFeatureFlag>();
             var reader = Substitute.For<IConfigurationReader>();
 
-            var properties = new Dictionary<string, string> { { "enabled", "true" } };
-            var flag = new Flag { Name = "Enabled", Properties = properties };
-            var feature = new Feature { Name = "example", Flags = new List<Flag> { flag } };
+            var properties =
+                new Dictionary<string, string> { { "enabled", "true" } };
+            var flag = new Flag("Enabled", properties);
+            var feature = new Feature("example", new List<Flag> { flag });
 
             FeatureFlagger.Reader = reader;
             reader.Read(string.Empty).ReturnsForAnyArgs(feature);
