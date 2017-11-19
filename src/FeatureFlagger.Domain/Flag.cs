@@ -4,13 +4,20 @@
 
     public class Flag
     {
-        public Flag()
+        public Flag(string name)
         {
             this.Properties = new Dictionary<string, string>();
+            this.Name = name;
         }
 
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
-        public Dictionary<string, string> Properties { get; set; } 
+        public Dictionary<string, string> Properties { get; private set; }
+
+        public Flag Add(string key, string val)
+        {
+            this.Properties.Add(key, val);
+            return this;
+        }
     }
 }
