@@ -10,6 +10,12 @@
             this.Name = name;
         }
 
+        public Flag(string name, Dictionary<string, string> properties)
+        {
+            this.Properties = properties;
+            this.Name = name;
+        }
+
         public string Name { get; private set; }
 
         public Dictionary<string, string> Properties { get; private set; }

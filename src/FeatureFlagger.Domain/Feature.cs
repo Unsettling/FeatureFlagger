@@ -10,6 +10,12 @@
             this.Name = name;
         }
 
+        public Feature(string name, List<Flag> flags)
+        {
+            this.Flags = flags;
+            this.Name = name;
+        }
+
         public string Name { get; private set; }
 
         public List<Flag> Flags { get; private set; }
