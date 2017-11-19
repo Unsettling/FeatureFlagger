@@ -1,12 +1,19 @@
 ﻿namespace FeatureFlagger.Example.Console
 {
-    using System;
-
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+         public static void Main(string[] args)
+         {
+             var featureFlag = new ExampleFeatureFlag();
+
+             var isFeatureFlagEnabled = featureFlag.IsEnabled();
+
+             System.Console.WriteLine(
+                 isFeatureFlagEnabled
+                 ? "Enabled."
+                 : "Disabled.");
+
+             System.Console.ReadKey();
+         }
     }
 }
