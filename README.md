@@ -1,7 +1,7 @@
 # FeatureFlagger
 ![Image of Flag](https://github.com/Boggin/FeatureFlagger/blob/master/assets/flag-64x64.png) Yet Another Feature Flag (Feature Toggle / Feature Switch) implementation.
 
-[![Build status](https://ci.appveyor.com/api/projects/status/mo5k3nbrplspm93f?svg=true)](https://ci.appveyor.com/project/Boggin/featureflagger)
+[![Build status](https://ci.appveyor.com/api/projects/status/f3ov0d8fqfy46yuu/branch/master?svg=true)](https://ci.appveyor.com/project/Boggin/featureflagger/branch/master)
 
 ## Quickstart
 1. add to the `<features />` section in your .config the name of your feature and whether it is enabled or not.  
