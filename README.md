@@ -1,74 +1,75 @@
-# FeatureFlagger
-![Image of Flag](https://github.com/Boggin/FeatureFlagger/raw/master/assets/flag-64x64.png) Yet Another Feature Flag (Feature Toggle / Feature Switch) implementation.
+﻿# FeatureFlagger
 
-[![Build status](https://ci.appveyor.com/api/projects/status/f3ov0d8fqfy46yuu/branch/master?svg=true)](https://ci.appveyor.com/project/Boggin/featureflagger/branch/master)
+## Introduction
 
-## Quickstart
-1. add to the `<features />` section in your .config the name of your feature and whether it is enabled or not.  
+A feature flag allows system functionality to be toggled based on configuration. 
 
-  ```XML
+A feature has flags. A basic flag every feature must have is whether or not it 
+is enabled. A flag is a behaviour and its parameters. A behaviour is a simple 
+piece of functional logic that serves as an activation strategy for the feature. 
+
     <features>
-      <example enabled="true">
-        <from date="2015-03-20" />
-      </example>
+      <feature name="Example" enabled="true">
+        <from date="2018-06-21" />
+      </feature>
     </features>
-  ```
 
-2. create a class named after your feature that inherits from IFeatureFlag.  
+In the above example the feature is called "Example" and its first flag is 
+"enabled" which is set to true. The next flag for this feature is a "from" flag. 
+This "from" flag will be represented in the code by a "from" behaviour. All 
+of a feature's flags must evaluate to true for the feature to be activated.
 
-  ```C#
-      public class ExampleFeatureFlag : IFeatureFlag { }
-  ```
+## Code
 
-3. where you want to toggle a feature:  
-  - instantiate your class (new it up)
+Each feature is a class inheriting from `IFeatureFlag`.
 
-  ```C#
-      var featureFlag = new ExampleFeatureFlag();
-  ```
+Where the feature is to be toggled the feature flag class is instantiated and 
+its `IsEnabled()` method is called.
 
-  - call the 'IsEnabled()' extension method
+    if (new ExampleFeatureFlag().IsEnabled())
+    {
+        doSomething();
+    }
 
-  ```C#
-      var isFeatureFlagEnabled = featureFlag.IsEnabled();
-  ```
+Each flag must have a corresponding behaviour. The system loads all the behaviours 
+that inherit from an `IBehaviour` interface. All behaviours for the feature are 
+evaluated and if they all pass then the feature is said to be enabled.
 
-  - control the flow in your code
+## User Behaviour
 
-  ```C#
-      System.Console.WriteLine(
-          isFeatureFlagEnabled
-          ? "Enabled."
-          : "Disabled.");
-  ```
+This behaviour allows matching users to features, either directly 
+through the features configuration or by providing an implementation of 
+`UserName()` to find the name of the user and `UserHasFeature()` to check a 
+datastore, for example.
 
-## Activation Strategies (from, until, etc.)
-The activation strategies all implement IBehaviour which means they must implement a `Func<dictionary<string, string>, bool>` method. The behaviours return this method that takes a set of parameters (the dictionary) and tests them truth-ily (the Boolean). You can call as many behaviours as you like for a feature and they each must evaluate to true for the feature flag to be 'on'. Composing your chosen behaviours then becomes your feature's activation strategy.
+There are a number of ways this can be configured:
 
-## Extending the activation strategies
-If you want to create a new behaviour you just need to implement IBehaviour, add the MEF2 ExportAttribute and the library will pick it up. [TODO: sample]
+    <features>
+        <feature name="example" enabled="true">
+            <from date="2018-06-21" />
+            <!-- jenny is in the list of users -->
+            <user name="jenny" lookup="users" users="dummy,jenny,john" />
+            <!-- dummy (the default) is in the list of users -->
+            <user lookup="users" users="dummy,jenny,john" />
+            <!-- tom isn't in the list of users -->
+            <user name="tom" lookup="users" users="dummy,jenny,john" />
+            <!-- user looked up in datastore -->
+            <user lookup="store" />
+            <!-- jenny looked up in datastore -->
+            <user name="jenny" />
+            <!-- user looked up in datastore -->
+            <user />
+        </feature>
+    </features>
 
-## Feature Flag configuration
-By default the library will read the settings for the feature flags from the .config of the application. This can be extended, however, by implementing the Read() method from IConfigurationReader. You could then read from your database, a web api or any kind of filesystem. [TODO: sample]
+Obviously only one of these `<user ... />` options can be specified at a time.
 
-## Conventions
-The name of your class must end in "FeatureFlag", i.e. "ExampleFeatureFlag.cs", so the code can read the type, remove the "FeatureFlag" sub-string and use the rest, i.e. "Example", to read from the configuration. If needs be this could be made configurable but convention is easier to deal with.
+If a `name` is provided then the system uses that as the username otherwise 
+the `UserName()` method provides the name. The default name is "dummy".
 
-## Design Notes
-Some other feature flaggers will default to disabled if the configuration for a flag isn't found. This library considers that to be exceptional so it will throw if it can't configure a feature flag.
+If the `lookup` is "users" then the `users` parameter is checked.
 
-The `<features />` tag in the .config has a stylesheet that ignores the content of the element. This allows for the creation of any type of flag with any kind of properties. Lots of flexibility but you are saved from hanging yourself by the loading of the configuration throwing if it can't set up the feature flag in code.
+If the `lookup` is "store" then the datastore will be checked using the `UserHasFeature()` method.
 
-Instantiation of the feature flags is the correct way to get to .IsEnabled(). Don't add them to your IoC container, even though they inherit from an interface, as they aren't supposed to be part of your application's internal API.
-
-The behaviours are very simple functions that you can compose to get your activation strategies rather than having just a few, large and unwieldy strategies.
-
-## Why another feature flagger?
-This feature flagger tries to be both terribly clear to use and very simple to extend. The existing feature flagging utilities all required some extra work on the part of the user that seemed unnecessary (setting up enums or using magic strings). They also weren't as obviously extensible as they could be.
-
-## But what *is* a feature flagger?
-There are two main cases for using a feature flag.
-
-The first allows you to share code and give others the option of enabling or disabling your feature. This means, for instance, that you can work on your feature branch and just as you would periodically pull from master you can now push to master without affecting the application's functionality. This practice would prevent the all-to-common 'merge ambush' where you check in your massive change and leave the real pain for others who then need to merge in their work. With feature flagging they would have seen the changes happening as you worked and do smaller merges as they went along. Hey, you could even dispense with feature branches altogether! Personally I think that's the baby going out with the bathwater but maybe your source control tools aren't as great.
-
-The second case allows for releasing code with feature flags enabled. Say you want to get a release out but you don't want a feature to be available just yet. Make your release now and set the date you want the feature to be available from. Perhaps you want to do a gradual rollout of a feature to see how it works for your users. Perhaps you want to do an A/B test with a particular cohort. You can create an activation strategy to allow for each of these cases in production. It could be done in staging so that product owners and stakeholders can review different features without the concomitant risk, should they decide not release a feature this cycle, that you have to remove a bunch of code from master and leave it in a long running feature branch.
+Both `UserName()` and `UserHasFeature()` are provided to the user 
+behaviour by implementing `IUser`.
