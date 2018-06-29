@@ -1,4 +1,4 @@
-# FeatureFlagger
+﻿# FeatureFlagger
 ![Image of Flag](https://github.com/Boggin/FeatureFlagger/raw/master/assets/flag-64x64.png) Yet Another Feature Flag (Feature Toggle / Feature Switch) implementation.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/f3ov0d8fqfy46yuu/branch/master?svg=true)](https://ci.appveyor.com/project/Boggin/featureflagger/branch/master)
