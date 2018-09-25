@@ -7,21 +7,29 @@
     using FeatureFlagger.Domain;
 
     [Export(typeof(IConfigurationReader))]
-    public class AppConfigReader : IConfigurationReader
+    public class ConfigReader : IConfigurationReader
     {
-        public Feature Read(string name)
+        private ConfigReader()
         {
-            /*
-            // read from App.config.
-            var features = (List<Feature>)ConfigurationManager.GetSection("features");
+            Name = "CONFIG";
+        }
 
-            // TODO: either set up naming convention or warn about incorrectly named feature flag markers.
-            name = name.Replace("FeatureFlag", string.Empty);
+        public string Name { get; }
 
-            return features.Find(f => f.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
-            */
-            // NOTE: ConfigurationManager isn't in netstandard ...
-            return new Feature("dummy");
+        public Feature Read(string featureName)
+        {
+            return
+                FeatureFlagger.Features.ToList()
+                    .Find(
+                        f =>
+                        f.Name.Equals(
+                            featureName,
+                            StringComparison.OrdinalIgnoreCase));
+        }
+
+        public IEnumerable<Feature> ReadAll()
+        {
+            return (List<Feature>)ConfigurationManager.GetSection("features");
         }
     }
 }
