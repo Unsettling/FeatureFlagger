@@ -18,7 +18,7 @@
 
         public string Name { get; private set; }
 
-        public List<Flag> Flags { get; private set; }
+        public List<Flag> Flags { get; }
 
         public Feature Add(Flag flag)
         {
