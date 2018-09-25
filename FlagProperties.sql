@@ -3,9 +3,6 @@ CREATE TABLE [dbo].[FlagProperties] (
         [Id] int IDENTITY(1,1) NOT NULL,
         [Name] nvarchar(max)  NOT NULL,
         [Description] nvarchar(max)  NOT NULL,
-        [LastUpdatedBy] nvarchar(50)  NOT NULL,
-        [LastUpdatedAt] datetime  NOT NULL,
-        [UpdateVersion] ROWVERSION  NULL,
         [PropertyKey] nvarchar(max)  NOT NULL,
         [PropertyValue] nvarchar(max)  NOT NULL,
         [FlagId] int  NOT NULL
