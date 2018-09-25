@@ -9,7 +9,7 @@
     {
         public Func<Dictionary<string, string>, bool> Behaviour()
         {
-            return x => Convert.ToBoolean(x["enabled"]);
+            return x => Convert.ToBoolean(x[Constants.Enabled]);
         }
     }
 }
