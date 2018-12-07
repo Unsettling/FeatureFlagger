@@ -187,3 +187,6 @@ FakesAssemblies/
 
 # macos
 .DS_Store
+
+# Visual Studio Code
+*.code-workspace

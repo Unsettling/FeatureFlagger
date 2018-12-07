@@ -1,4 +1,4 @@
-namespace Unsettling.FeatureFlagger.ConfigurationReaders
+﻿namespace RoyalLondon.IntermediaryManagement.Api.FeatureFlagger
 {
     using System;
     using System.Collections.Generic;
@@ -22,7 +22,7 @@ namespace Unsettling.FeatureFlagger.ConfigurationReaders
                 var flag = EnabledFlag(childNode.Attributes);
                 var feature =
                     new Feature(
-                        childNode.Attributes?.GetNamedItem("name").InnerText.Trim().ToUpperInvariant());
+                        childNode.Attributes?.GetNamedItem("name").InnerText);
                 feature.Flags.Add(flag);
 
                 foreach (XmlNode node in childNode.ChildNodes)
@@ -35,8 +35,8 @@ namespace Unsettling.FeatureFlagger.ConfigurationReaders
                     var attrs =
                         node.Attributes.Cast<XmlAttribute>()
                             .ToDictionary(
-                                attr => attr.Name.Trim().ToUpperInvariant(),
-                                attr => attr.InnerText.Trim().ToUpperInvariant());
+                                attr => attr.Name,
+                                attr => attr.InnerText);
 
                     // title case is required when looking up Behaviours.
                     var info = new CultureInfo("en-US").TextInfo;
@@ -66,12 +66,8 @@ namespace Unsettling.FeatureFlagger.ConfigurationReaders
 
             var flag =
                 new Flag(
-                    Constants.Enabled,
-                    new Dictionary<string, string>(
-                        StringComparer.OrdinalIgnoreCase)
-                    {
-                        { Constants.Enabled, enabled }
-                    });
+                    "Enabled",
+                    new Dictionary<string, string> { { "enabled", enabled } });
 
             return flag;
         }
