@@ -34,5 +34,15 @@
             var rand = r.Next().ToString(CultureInfo.InvariantCulture);
             return "username" + rand;
         }
+
+        public string UserName()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UserHasFeature(string userName, string featureName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

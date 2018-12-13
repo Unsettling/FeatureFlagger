@@ -1,20 +1,25 @@
-﻿namespace RoyalLondon.IntermediaryManagement.Api.FeatureFlagger.Behaviours
+﻿namespace FeatureFlagger.Behaviours
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.Composition;
     using System.Linq;
-
-    using RoyalLondon.IntermediaryManagement.Api.Entities;
 
     [Export(typeof(IUser))]
     public class User : IUser
     {
-        public bool UserHasFeature(string userName, string featureName)
+        public string UserName()
         {
-            IntermediaryManagement_DB context = null;
+            throw new NotImplementedException();
+        }
+
+        bool IUser.UserHasFeature(string userName, string featureName)
+        {
+            DbContext context = null;
             try
             {
-                context = IntermediariesContainerFactory.Create();
+                context = DbContextFactory.Create();
+                /*
                 var user =
                     context.Users.FirstOrDefault(
                         u =>
@@ -27,8 +32,10 @@
                         f.Name.Equals(
                             featureName,
                             StringComparison.OrdinalIgnoreCase));
-
                 return hasFeature == true;
+*/
+
+                return true;
             }
             finally
             {
@@ -36,10 +43,22 @@
             }
         }
 
-        public string UserName()
+        public class DbContext
         {
-            // TODO: get the authorised user from SSO.
-            return "dummy";
+            internal readonly List<User> Users;
+
+            internal void Dispose()
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public class DbContextFactory
+        {
+            internal static DbContext Create()
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

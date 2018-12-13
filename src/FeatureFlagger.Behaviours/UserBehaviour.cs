@@ -1,11 +1,10 @@
-﻿namespace RoyalLondon.IntermediaryManagement.Api.FeatureFlagger.Behaviours
+﻿namespace FeatureFlagger.Behaviours
 {
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.Composition;
     using System.Linq;
-
-    using Castle.Core.Internal;
+    using global::FeatureFlagger.Behaviours;
 
     [Export(typeof(IBehaviour))]
     public class UserBehaviour : IBehaviour
@@ -26,7 +25,8 @@
                     string username = x.TryGetValue("name", out username) ? username : user.UserName();
                     string lookup = x.TryGetValue("lookup", out lookup) ? lookup : "store";
 
-                    if (lookup.IsNullOrEmpty() || lookup.Equals("store"))
+//                if (lookup.IsNullOrEmpty() || lookup.Equals("store"))
+                    if (string.IsNullOrEmpty(lookup) || lookup.Equals("store"))
                     {
                         return user.UserHasFeature(username, x["feature"]);
                     }
