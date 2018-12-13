@@ -6,6 +6,7 @@
     using System.Globalization;
     using System.Linq;
     using System.Xml;
+    using global::FeatureFlagger.Domain;
 
     public class FeaturesSection : IConfigurationSectionHandler
     {

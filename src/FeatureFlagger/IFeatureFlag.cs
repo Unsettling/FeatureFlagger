@@ -1,6 +1,6 @@
 ﻿namespace FeatureFlagger
 {
-    public interface IFeatureFlag
+    public interface IFeatureFlagger
     {
     }
 }
