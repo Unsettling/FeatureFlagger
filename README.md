@@ -3,6 +3,25 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/f3ov0d8fqfy46yuu/branch/master?svg=true)](https://ci.appveyor.com/project/Boggin/featureflagger/branch/master)
 
+## Introduction
+
+A feature flag allows system functionality to be toggled based on configuration. 
+
+A feature has flags. A basic flag every feature must have is whether or not it 
+is enabled. A flag is a behaviour and its parameters. A behaviour is a simple 
+piece of functional logic that serves as an activation strategy for the feature. 
+
+    <features>
+      <feature name="Example" enabled="true">
+        <from date="2018-06-21" />
+      </feature>
+    </features>
+
+In the above example the feature is called "Example" and its first flag is 
+"enabled" which is set to true. The next flag for this feature is a "from" flag. 
+This "from" flag will be represented in the code by a "from" behaviour. All 
+of a feature's flags must evaluate to true for the feature to be activated.
+
 ## Quickstart
 1. add to the `<features />` section in your .config the name of your feature and whether it is enabled or not.  
 
@@ -41,6 +60,22 @@
           ? "Enabled."
           : "Disabled.");
   ```
+
+## Code
+
+Each feature is a class inheriting from `IFeatureFlag`.
+
+Where the feature is to be toggled the feature flag class is instantiated and 
+its `IsEnabled()` method is called.
+
+    if (new ExampleFeatureFlag().IsEnabled())
+    {
+        doSomething();
+    }
+
+Each flag must have a corresponding behaviour. The system loads all the behaviours 
+that inherit from an `IBehaviour` interface. All behaviours for the feature are 
+evaluated and if they all pass then the feature is said to be enabled.
 
 ## Activation Strategies (from, until, etc.)
 The activation strategies all implement IBehaviour which means they must implement a `Func<dictionary<string, string>, bool>` method. The behaviours return this method that takes a set of parameters (the dictionary) and tests them truth-ily (the Boolean). You can call as many behaviours as you like for a feature and they each must evaluate to true for the feature flag to be 'on'. Composing your chosen behaviours then becomes your feature's activation strategy.
@@ -163,3 +198,44 @@ A token is for identity only and anyway should be as lightweight as possible.
 
 User authorisation should be stored as close to the application as possible, 
 preferably in the same data store.
+
+## A/B Testing
+
+It is easy to do boolean A/B testing with FeatureFlagger. Either the feature is 
+enabled and the user sees that functionality or the feature isn't enabled and 
+the user sees an alternate function or no functionality at all.
+
+FeatureFlagger can also do multi-variate or ABCD testing by using a simple 
+convention. Create features that follow a clear naming pattern, _i.e._ 
+"FeatureName_VariantNumber"; "FeatureName_Control". Use these features on the 
+branches in your code.
+
+For any A/B or multi-variate test the current user must be passed as a flag to 
+the feature (via a **User Flag**). The user is then assigned to a bucket that 
+always sees a particular variant.
+
+A **Distribution Flag** with a percentage property is required for each Feature. 
+If it's an A/B test then the the percentage would be the number of users who see 
+the feature. If it's a multi-variate test then the distribution between the 
+variants and the control should add up to 100. If the total isn't 100 then 
+you'll get spurious results.
+
+In the case where your users are not identifiable by being logged in then either 
+cookies or browser fingerprinting could be employed to try and give anonymous 
+users an identity for the test.
+
+### Segments
+
+A test can use a segment (_a.k.a._ cohort) of the user base. The **Segment Flag** 
+would give the same segment name on each branch of the ABCD test. If no segment 
+is given then the test is across the whole user base.
+
+A **Segment Flag** could be a pointer to a list in a datastore, for instance a 
+SQL table, _e.g._  
+`<segment name="uk_cohort" table="segments" />`  
+
+The `Segments` table could have fields for `IncludedUsers`, `ExcludedUsers` and 
+`Rules` where the rules are preset expressions.
+
+Equally, a **Segment Flag** could carry a rule within it, _e.g._  
+`<segment name="uk_cohort" comparator="eq" term="country" variable="UK">`
