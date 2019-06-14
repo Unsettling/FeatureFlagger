@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{F103DA29-0735-4D34-BE16-E92F25D63CB9}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+	EndProjectSection
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{80705188-61E3-4217-8242-1CD206CD152D}"
 	ProjectSection(SolutionItems) = preProject
 		.semver = .semver
 		FeatureFlagger.nuspec = FeatureFlagger.nuspec
 		FeatureFlagger.xsd = FeatureFlagger.xsd
 		README.md = README.md
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E601F3B2-5D12-41DF-B73F-DC6B7346834F}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger", "src\FeatureFlagger\FeatureFlagger.csproj", "{9D15A2B6-FAEB-4A28-A25E-C58BCF327CC2}"
