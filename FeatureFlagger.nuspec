@@ -6,9 +6,9 @@
     <title>Feature Flagger</title>
     <authors>Richard Bogle</authors>
     <owners>boggin</owners>
-    <licenseUrl>https://github.com/Boggin/FeatureFlagger/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/Boggin/FeatureFlagger</projectUrl>
-    <iconUrl>https://github.com/Boggin/FeatureFlagger/raw/master/assets/flag-64x64.png</iconUrl>
+    <licenseUrl>https://github.com/Unsettling/FeatureFlagger/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/Unsettling/FeatureFlagger</projectUrl>
+    <iconUrl>https://github.com/Unsettling/FeatureFlagger/raw/master/assets/flag-64x64.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Yet another Feature Flag (or Feature Toggle or Feature Switch) for your code.</description>
     <releaseNotes>alpha</releaseNotes>
