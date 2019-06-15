@@ -3,10 +3,5 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\FeatureFlagger.ConfigurationReaders\FeatureFlagger.ConfigurationReaders.csproj" />
-    <ProjectReference Include="..\..\src\FeatureFlagger.Domain\FeatureFlagger.Domain.csproj" />
-    <ProjectReference Include="..\..\src\FeatureFlagger\FeatureFlagger.csproj" />
-  </ItemGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>
