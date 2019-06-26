@@ -1,4 +1,4 @@
-namespace Unsettling.FeatureFlagger
+namespace FeatureFlagger
 {
     public static class Constants
     {

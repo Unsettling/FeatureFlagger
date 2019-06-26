@@ -1,13 +1,13 @@
-namespace Unsettling.FeatureFlagger.ConfigurationReaders
+namespace FeatureFlagger.ConfigurationReaders
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.Composition;
+    using System.Composition;
     using System.Configuration;
     using System.Data.SqlClient;
     using System.Linq;
 
-    using Feature = Unsettling.FeatureFlagger.Feature;
+    using Feature = Domain.Feature;
 
     [Export(typeof(IConfigurationReader))]
     public class StoreReader : IConfigurationReader

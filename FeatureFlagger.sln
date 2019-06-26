@@ -10,7 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{F103DA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{80705188-61E3-4217-8242-1CD206CD152D}"
 	ProjectSection(SolutionItems) = preProject
-		.semver = .semver
 		FeatureFlagger.nuspec = FeatureFlagger.nuspec
 		FeatureFlagger.xsd = FeatureFlagger.xsd
 		README.md = README.md
@@ -27,6 +26,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger.Examples.Console", "examples\FeatureFlagger.Example.Console\FeatureFlagger.Examples.Console.csproj", "{7AA8CAB0-7A56-4F12-9476-EB869484FA90}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger.Tests", "tests\FeatureFlagger.Tests\FeatureFlagger.Tests.csproj", "{E7769F13-6EEF-459D-BEA2-105C3FFEB444}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger.ConfigurationWriters", "src\FeatureFlagger.ConfigurationWriters\FeatureFlagger.ConfigurationWriters.csproj", "{46131F8A-055F-4CD4-8A47-405DF4103C68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,6 +59,10 @@ Global
 		{E7769F13-6EEF-459D-BEA2-105C3FFEB444}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7769F13-6EEF-459D-BEA2-105C3FFEB444}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7769F13-6EEF-459D-BEA2-105C3FFEB444}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46131F8A-055F-4CD4-8A47-405DF4103C68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46131F8A-055F-4CD4-8A47-405DF4103C68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46131F8A-055F-4CD4-8A47-405DF4103C68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46131F8A-055F-4CD4-8A47-405DF4103C68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

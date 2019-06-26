@@ -1,4 +1,4 @@
-﻿namespace RoyalLondon.IntermediaryManagement.Api.FeatureFlagger
+﻿namespace IntermediaryManagement.Api.FeatureFlagger
 {
     public class ExampleFeatureFlagger : IFeatureFlagger
     {

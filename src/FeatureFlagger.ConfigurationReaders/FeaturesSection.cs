@@ -1,4 +1,4 @@
-﻿namespace RoyalLondon.IntermediaryManagement.Api.FeatureFlagger
+﻿namespace IntermediaryManagement.Api.FeatureFlagger
 {
     using System;
     using System.Collections.Generic;

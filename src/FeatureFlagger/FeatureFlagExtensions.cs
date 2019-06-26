@@ -3,6 +3,8 @@
     using System.Collections.Generic;
     using System.Linq;
 
+    using Flag = Domain.Flag;
+
     public static class FeatureFlaggerExtensions
     {
         public static bool IsEnabled(this IFeatureFlagger featureFlagger)
