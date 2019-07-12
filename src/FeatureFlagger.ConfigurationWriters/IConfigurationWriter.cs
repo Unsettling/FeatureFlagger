@@ -1,6 +1,5 @@
 ﻿namespace FeatureFlagger.ConfigurationWriters
 {
-    using System;
     using FeatureFlagger.Domain;
 
     public interface IConfigurationWriter

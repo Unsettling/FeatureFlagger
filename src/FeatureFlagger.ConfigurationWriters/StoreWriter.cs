@@ -1,12 +1,13 @@
 ﻿namespace FeatureFlagger.ConfigurationWriters
 {
     using System;
-    using System.ComponentModel.Composition;
+    using System.Composition;
     using System.Configuration;
     using System.Data.SqlClient;
     using System.Text;
+    using FeatureFlagger;
 
-    using Feature = RoyalLondon.IntermediaryManagement.Api.FeatureFlagger.Domain.Feature;
+    using Feature = Domain.Feature;
 
     [Export(typeof(IConfigurationWriter))]
     public class StoreWriter : IConfigurationWriter
