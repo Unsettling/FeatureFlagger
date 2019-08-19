@@ -3,5 +3,4 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>

@@ -8,5 +8,4 @@
 
         void Add(string bucketName, string userName);
     }
-
 }

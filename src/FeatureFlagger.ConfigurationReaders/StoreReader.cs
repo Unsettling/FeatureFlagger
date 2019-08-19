@@ -7,7 +7,7 @@ namespace FeatureFlagger.ConfigurationReaders
     using System.Data.SqlClient;
     using System.Linq;
 
-    using Feature = Domain.Feature;
+    using FeatureFlagger.Domain;
 
     [Export(typeof(IConfigurationReader))]
     public class StoreReader : IConfigurationReader
@@ -32,7 +32,7 @@ namespace FeatureFlagger.ConfigurationReaders
 
         public IEnumerable<Feature> ReadAll()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["IntermediaryManagement_DB"].ConnectionString;
+            var connectionString = ConfigurationManager.ConnectionStrings["FeatureFlagger_DB"].ConnectionString;
 
             const string QueryString =
                 "SELECT Features.Name, Flags.Name, FlagProperties.PropertyKey, FlagProperties.PropertyValue "

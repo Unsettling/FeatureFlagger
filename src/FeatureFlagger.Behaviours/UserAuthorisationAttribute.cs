@@ -1,4 +1,4 @@
-namespace Settling.FeatureFlagger.CustomAttributes
+namespace FeatureFlagger.Behaviours
 {
     using System;
     using System.Collections.Generic;
@@ -7,7 +7,7 @@ namespace Settling.FeatureFlagger.CustomAttributes
     using System.Web.Http.Controllers;
 
     // [UserFeatureFlag("endpoints-get", [UserName = "jenny"], [Lookup = "users"], [UsersList = "dummy,jenny"])]
-    [System.AttributeUsage(System.AttributeTargets.Class | System.AttributeTargets.Method, AllowMultiple = true)]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true)]
     public sealed class UserAuthorisationAttribute : AuthorizeAttribute
     {
         public UserAuthorisationAttribute(string featureName)

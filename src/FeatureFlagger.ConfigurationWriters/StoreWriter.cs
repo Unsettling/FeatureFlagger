@@ -18,7 +18,7 @@
         {
             this.Name = "STORE";
 
-            this.connectionString = ConfigurationManager.ConnectionStrings["IntermediaryManagement_DB"].ConnectionString;
+            this.connectionString = ConfigurationManager.ConnectionStrings["FeatureFlagger_DB"].ConnectionString;
         }
 
         public string Name { get; }

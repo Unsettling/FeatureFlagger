@@ -1,13 +1,17 @@
 ﻿namespace FeatureFlagger
 {
+    using System;
     using System.Collections.Generic;
+    using System.ComponentModel.Composition.Hosting;
     using System.Composition;
+    using System.Configuration;
+    using System.Linq;
     using System.Reflection;
 
     using Behaviours;
     using ConfigurationReaders;
-
-    using Feature = Domain.Feature;
+    using ConfigurationWriters;
+    using Domain;
 
     public sealed class FeatureFlagger
     {
@@ -36,6 +40,9 @@
         [ImportMany]
         private static IEnumerable<IConfigurationReader> Readers { get; set; }
 
+        [ImportMany]
+        private static IEnumerable<IConfigurationWriter> Writers { get; set; }
+
         private static void SetFeatures()
         {
             Features = Reader.ReadAll();
@@ -43,7 +50,7 @@
 
         private static void SetReader()
         {
-            // set the configuation reader based on an appSetting.
+            // set the configuation reader based on an AppSetting.
             var source =
                 ConfigurationManager.AppSettings["FeatureFlaggerSource"]
                 ?? Constants.Config;
@@ -58,7 +65,7 @@
 
         private static void SetWriter()
         {
-            // set the configuation writer based on an appSetting.
+            // set the configuation writer based on an AppSetting.
             var source =
                 ConfigurationManager.AppSettings["FeatureFlaggerSource"]
                 ?? Constants.Config;

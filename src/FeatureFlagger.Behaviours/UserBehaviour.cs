@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.ComponentModel.Composition;
     using System.Linq;
-    using global::FeatureFlagger.Behaviours;
 
     [Export(typeof(IBehaviour))]
     public class UserBehaviour : IBehaviour
@@ -22,10 +21,9 @@
         {
             return x =>
                 {
-                    string username = x.TryGetValue("name", out username) ? username : user.UserName();
+                    string username = x.TryGetValue("name", out username) ? username : user.Username();
                     string lookup = x.TryGetValue("lookup", out lookup) ? lookup : "store";
 
-//                if (lookup.IsNullOrEmpty() || lookup.Equals("store"))
                     if (string.IsNullOrEmpty(lookup) || lookup.Equals("store"))
                     {
                         return user.UserHasFeature(username, x["feature"]);

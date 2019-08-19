@@ -7,5 +7,4 @@
     <ProjectReference Include="..\FeatureFlagger.Behaviours\FeatureFlagger.Behaviours.csproj" />
     <ProjectReference Include="..\FeatureFlagger.ConfigurationReaders\FeatureFlagger.ConfigurationReaders.csproj" />
   </ItemGroup>
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>

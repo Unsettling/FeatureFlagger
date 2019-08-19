@@ -1,33 +1,29 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{F103DA29-0735-4D34-BE16-E92F25D63CB9}"
-	ProjectSection(SolutionItems) = preProject
-		paket.dependencies = paket.dependencies
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{80705188-61E3-4217-8242-1CD206CD152D}"
 	ProjectSection(SolutionItems) = preProject
 		FeatureFlagger.nuspec = FeatureFlagger.nuspec
 		FeatureFlagger.xsd = FeatureFlagger.xsd
+		NOTES.md = NOTES.md
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger", "src\FeatureFlagger\FeatureFlagger.csproj", "{9D15A2B6-FAEB-4A28-A25E-C58BCF327CC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureFlagger", "src\FeatureFlagger\FeatureFlagger.csproj", "{9D15A2B6-FAEB-4A28-A25E-C58BCF327CC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger.Behaviours", "src\FeatureFlagger.Behaviours\FeatureFlagger.Behaviours.csproj", "{0F866C20-3765-41C8-9A10-BBE4F1F08AD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureFlagger.Behaviours", "src\FeatureFlagger.Behaviours\FeatureFlagger.Behaviours.csproj", "{0F866C20-3765-41C8-9A10-BBE4F1F08AD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger.ConfigurationReaders", "src\FeatureFlagger.ConfigurationReaders\FeatureFlagger.ConfigurationReaders.csproj", "{BBC3F25A-D3CC-415D-ABE6-4291673BBC7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureFlagger.ConfigurationReaders", "src\FeatureFlagger.ConfigurationReaders\FeatureFlagger.ConfigurationReaders.csproj", "{BBC3F25A-D3CC-415D-ABE6-4291673BBC7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger.Domain", "src\FeatureFlagger.Domain\FeatureFlagger.Domain.csproj", "{E0101E34-2E60-4B24-9D28-E85D99625A50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureFlagger.Domain", "src\FeatureFlagger.Domain\FeatureFlagger.Domain.csproj", "{E0101E34-2E60-4B24-9D28-E85D99625A50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger.Examples.Console", "examples\FeatureFlagger.Example.Console\FeatureFlagger.Examples.Console.csproj", "{7AA8CAB0-7A56-4F12-9476-EB869484FA90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureFlagger.Examples.Console", "examples\FeatureFlagger.Example.Console\FeatureFlagger.Examples.Console.csproj", "{7AA8CAB0-7A56-4F12-9476-EB869484FA90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger.Tests", "tests\FeatureFlagger.Tests\FeatureFlagger.Tests.csproj", "{E7769F13-6EEF-459D-BEA2-105C3FFEB444}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureFlagger.Tests", "tests\FeatureFlagger.Tests\FeatureFlagger.Tests.csproj", "{E7769F13-6EEF-459D-BEA2-105C3FFEB444}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger.ConfigurationWriters", "src\FeatureFlagger.ConfigurationWriters\FeatureFlagger.ConfigurationWriters.csproj", "{46131F8A-055F-4CD4-8A47-405DF4103C68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureFlagger.ConfigurationWriters", "src\FeatureFlagger.ConfigurationWriters\FeatureFlagger.ConfigurationWriters.csproj", "{46131F8A-055F-4CD4-8A47-405DF4103C68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,5 +62,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D565F732-85CC-47CB-A009-F3931BDFB324}
 	EndGlobalSection
 EndGlobal

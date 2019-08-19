@@ -3,11 +3,10 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FeatureFlagger.Domain\FeatureFlagger.Domain.csproj" />
+    <PackageReference Include="System.Composition.AttributedModel" Version="1.2.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="System.Data.SqlClient" Version="4.6.1" />
-    <PackageReference Include="NETStandard.Library" Version="2.0.3" />
+    <ProjectReference Include="..\FeatureFlagger.Domain\FeatureFlagger.Domain.csproj" />
   </ItemGroup>
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>
