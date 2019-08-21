@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureFlagger.Tests", "tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureFlagger.ConfigurationWriters", "src\FeatureFlagger.ConfigurationWriters\FeatureFlagger.ConfigurationWriters.csproj", "{46131F8A-055F-4CD4-8A47-405DF4103C68}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger.Authorisation", "src\FeatureFlagger.Authorisation\FeatureFlagger.Authorisation.csproj", "{1B510588-5AF7-48AD-AED6-A7F04452799D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{46131F8A-055F-4CD4-8A47-405DF4103C68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46131F8A-055F-4CD4-8A47-405DF4103C68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46131F8A-055F-4CD4-8A47-405DF4103C68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B510588-5AF7-48AD-AED6-A7F04452799D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B510588-5AF7-48AD-AED6-A7F04452799D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B510588-5AF7-48AD-AED6-A7F04452799D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B510588-5AF7-48AD-AED6-A7F04452799D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,11 +1,9 @@
 ﻿namespace FeatureFlagger.ConfigurationWriters
 {
-    using System;
     using System.Composition;
     using System.Configuration;
     using System.Data.SqlClient;
     using System.Text;
-    using FeatureFlagger;
 
     using Feature = Domain.Feature;
 
@@ -27,14 +25,16 @@
         {
             this.CreateFeature(feature);
 
-            FeatureFlagger.SetFeatures();
+            // TODO: cyclic dependency?
+            // FeatureFlagger.SetFeatures();
         }
 
         public void Delete(string featureName)
         {
             this.DeleteFeature(featureName);
 
-            FeatureFlagger.SetFeatures();
+            // TODO: cyclic dependency?
+            // FeatureFlagger.SetFeatures();
         }
 
         public void Update(Feature feature)
@@ -50,7 +50,8 @@
             this.DeleteFeature(feature.Name);
             this.CreateFeature(feature);
 
-            FeatureFlagger.SetFeatures();
+            // TODO: cyclic dependency?
+            // FeatureFlagger.SetFeatures();
         }
 
         private void CreateFeature(Feature feature)
@@ -87,17 +88,12 @@
 
         private void ExecuteSql(string queryString)
         {
-            // ToDo Code changes required to resolve the Veracode issue below...
-            //Avoid dynamically constructing SQL queries.Instead, use parameterized prepared statements to prevent the
-            //    database from interpreting the contents of bind variables as part of the query.Always validate untrusted input to
-            //    ensure that it conforms to the expected format, using centralized data validation routines when possible.
-            //
-            //using (var connection = new SqlConnection(this.connectionString))
-            //using (var command = new SqlCommand(queryString, connection))
-            //{
-            //    connection.Open();
-            //    command.ExecuteNonQuery();
-            //}
+            using (var connection = new SqlConnection(this.connectionString))
+            using (var command = new SqlCommand(queryString, connection))
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
         }
     }
 }

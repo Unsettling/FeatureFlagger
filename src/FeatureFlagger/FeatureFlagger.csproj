@@ -4,7 +4,12 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="System.Composition.AttributedModel" Version="1.2.0" />
+    <PackageReference Include="System.Composition.TypedParts" Version="1.2.0" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\FeatureFlagger.Behaviours\FeatureFlagger.Behaviours.csproj" />
     <ProjectReference Include="..\FeatureFlagger.ConfigurationReaders\FeatureFlagger.ConfigurationReaders.csproj" />
+    <ProjectReference Include="..\FeatureFlagger.ConfigurationWriters\FeatureFlagger.ConfigurationWriters.csproj" />
   </ItemGroup>
 </Project>

@@ -3,7 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.Composition;
-
+    using System.Configuration;
+    using System.Linq;
     using FeatureFlagger.Domain;
 
     [Export(typeof(IConfigurationReader))]
@@ -16,10 +17,10 @@
 
         public string Name { get; }
 
-        public Feature Read(string featureName)
+        public Feature Read(string featureName, IEnumerable<Feature> features)
         {
             return
-                FeatureFlagger.Features.ToList()
+                features.ToList()
                     .Find(
                         f =>
                         f.Name.Equals(

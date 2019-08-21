@@ -2,11 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.Composition.Hosting;
     using System.Composition;
+    using System.Composition.Hosting;
     using System.Configuration;
     using System.Linq;
-    using System.Reflection;
 
     using Behaviours;
     using ConfigurationReaders;
@@ -31,19 +30,19 @@
         [ImportMany]
         public static IEnumerable<IBehaviour> Behaviours { get; private set; }
 
-        public static IEnumerable<Feature> Features { get; private set; }
-
-        public static IConfigurationReader Reader { get; private set; }
-
-        public static IConfigurationWriter Writer { get; private set; }
-
         [ImportMany]
         private static IEnumerable<IConfigurationReader> Readers { get; set; }
 
         [ImportMany]
         private static IEnumerable<IConfigurationWriter> Writers { get; set; }
 
-        private static void SetFeatures()
+        public static IEnumerable<Feature> Features { get; private set; }
+
+        public static IConfigurationReader Reader { get; private set; }
+
+        public static IConfigurationWriter Writer { get; private set; }
+
+        public static void SetFeatures()
         {
             Features = Reader.ReadAll();
         }
@@ -80,19 +79,12 @@
 
         private void SetImports()
         {
-            using (var catalog = new AggregateCatalog())
-            {
-                catalog.Catalogs.Add(
-                    new AssemblyCatalog(
-                        typeof(IBehaviour).GetTypeInfo().Assembly));
-                using (var container = new CompositionContainer(catalog))
-                {
-                    container.SatisfyImportsOnce(this);
-                    Behaviours = container.GetExportedValues<IBehaviour>();
-                    Readers = container.GetExportedValues<IConfigurationReader>();
-                    // Writers ...
-                }
-            }
+            var configuration = new ContainerConfiguration().WithAssembly(typeof(IBehaviour).Assembly);
+            var container = configuration.CreateContainer();
+            container.SatisfyImports(this);
+            Behaviours = container.GetExports<IBehaviour>();
+            Readers = container.GetExports<IConfigurationReader>();
+            Writers = container.GetExports<IConfigurationWriter>();
         }
     }
 }

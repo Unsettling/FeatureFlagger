@@ -30,7 +30,7 @@
                 featureFlagger.GetType().Name
                     .Replace("FeatureFlagger", string.Empty);
 
-            var feature = FeatureFlagger.Reader.Read(featureName);
+            var feature = FeatureFlagger.Reader.Read(featureName, FeatureFlagger.Features);
 
             // add the feature name to each flag as a property
             // (as long as it's not been added already).

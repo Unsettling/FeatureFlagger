@@ -2,13 +2,12 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.Composition;
+    using System.Composition;
     using System.Security.Cryptography;
 
     [Export(typeof(IBehaviour))]
     public class DistributionBehaviour : IBehaviour
     {
-        private static readonly Random Random = new Random();
         private static readonly object Synclock = new object();
         private readonly IUser user;
         private readonly IBucket bucket;
@@ -30,7 +29,7 @@
             return x =>
             {
                 var featureName = x[Constants.Feature];
-                var userName = user.UserName;
+                string userName = user.Username;
 
                 // Debug.WriteLine($"UserName: {userName}, FeatureName: {featureName}");
 
@@ -126,10 +125,14 @@
         {
             lock (Synclock)
             {
+                int diceRoll;
                 var randomNumber = new byte[1];
-                var crytoService = new RNGCryptoServiceProvider();
-                crytoService.GetBytes(randomNumber);
-                var diceRoll = (randomNumber[0] % 100) + 1;
+
+                using (RNGCryptoServiceProvider crytoService = new RNGCryptoServiceProvider())
+                {
+                    crytoService.GetBytes(randomNumber);
+                    diceRoll = (randomNumber[0] % 100) + 1;
+                }
 
                 return diceRoll <= percentage * 100;
             }

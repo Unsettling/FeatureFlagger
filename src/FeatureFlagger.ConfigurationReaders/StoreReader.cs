@@ -19,10 +19,10 @@ namespace FeatureFlagger.ConfigurationReaders
 
         public string Name { get; }
 
-        public Feature Read(string featureName)
+        public Feature Read(string featureName, IEnumerable<Feature> features)
         {
             return
-                FeatureFlagger.Features.ToList()
+                features.ToList()
                     .Find(
                         f =>
                         f.Name.Equals(

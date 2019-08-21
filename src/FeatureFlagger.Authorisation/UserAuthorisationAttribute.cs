@@ -1,4 +1,4 @@
-namespace FeatureFlagger.Behaviours
+namespace FeatureFlagger.Authorisation
 {
     using System;
     using System.Collections.Generic;

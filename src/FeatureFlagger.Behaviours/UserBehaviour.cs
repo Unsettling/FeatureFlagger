@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.Composition;
+    using System.Composition;
     using System.Linq;
 
     [Export(typeof(IBehaviour))]
@@ -21,7 +21,7 @@
         {
             return x =>
                 {
-                    string username = x.TryGetValue("name", out username) ? username : user.Username();
+                    string username = x.TryGetValue("name", out username) ? username : user.Username;
                     string lookup = x.TryGetValue("lookup", out lookup) ? lookup : "store";
 
                     if (string.IsNullOrEmpty(lookup) || lookup.Equals("store"))

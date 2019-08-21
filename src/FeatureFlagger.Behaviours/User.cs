@@ -1,13 +1,15 @@
 ﻿namespace FeatureFlagger.Behaviours
 {
     using System;
-    using System.ComponentModel.Composition;
+    using System.Composition;
     using System.Configuration;
     using System.Data.SqlClient;
 
     [Export(typeof(IUser))]
     public class User : IUser
     {
+        public string Username { get => ""; set => throw new NotImplementedException(); }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2100:Review SQL queries for security vulnerabilities", Justification = "SQL parameters don't come from user input.")]
         public bool UserHasFeature(string userName, string featureName)
         {
@@ -36,11 +38,6 @@
             }
 
             return Convert.ToBoolean(hasFeature);
-        }
-
-        string IUser.Username()
-        {
-            throw new NotImplementedException();
         }
     }
 }
