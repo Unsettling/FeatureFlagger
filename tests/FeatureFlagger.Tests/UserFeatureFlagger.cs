@@ -1,4 +1,4 @@
-﻿namespace RoyalLondon.IntermediaryManagement.Api.FeatureFlagger
+﻿namespace FeatureFlagger.Tests
 {
     public class UserFeatureFlagger : IFeatureFlagger
     {

@@ -1,4 +1,4 @@
-﻿namespace IntermediaryManagement.Api.FeatureFlagger
+﻿namespace FeatureFlagger.Tests
 {
     public class ExampleFeatureFlagger : IFeatureFlagger
     {
