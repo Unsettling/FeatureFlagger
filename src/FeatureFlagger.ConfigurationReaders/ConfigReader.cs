@@ -7,16 +7,10 @@
     using System.Linq;
     using FeatureFlagger.Domain;
 
+    [ExportMetadata("Name", "CONFIG")]
     [Export(typeof(IConfigurationReader))]
     public class ConfigReader : IConfigurationReader
     {
-        private ConfigReader()
-        {
-            Name = "CONFIG";
-        }
-
-        public string Name { get; }
-
         public Feature Read(string featureName, IEnumerable<Feature> features)
         {
             return

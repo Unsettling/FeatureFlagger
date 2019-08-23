@@ -1,52 +1,43 @@
 ﻿namespace FeatureFlagger.Tests
 {
+    using Shouldly;
     using Xunit;
 
     public class FeatureFlaggerTests
     {
+        [Fact]
         public void ShouldUseBasicEnabledFlag()
         {
             var featureFlag = new ExampleFeatureFlagger();
-
-            var isEnabled = featureFlag.IsEnabled();
-
-            Assert.True(isEnabled);
+            featureFlag.IsEnabled().ShouldBeTrue();
         }
 
+        [Fact]
         public void ShouldFailDisabledFlag()
         {
             var featureFlag = new DisabledFeatureFlagger();
-
-            var isEnabled = featureFlag.IsEnabled();
-
-            Assert.False(isEnabled);
+            featureFlag.IsEnabled().ShouldBeFalse();
         }
 
+        [Fact]
         public void ShouldUseFromFlag()
         {
             var featureFlag = new FromFeatureFlagger();
-
-            var isEnabled = featureFlag.IsEnabled();
-
-            Assert.True(isEnabled);
+            featureFlag.IsEnabled().ShouldBeTrue();
         }
 
+        [Fact]
         public void ShouldUseUserFlag()
         {
             var featureFlag = new UserFeatureFlagger();
-
-            var isEnabled = featureFlag.IsEnabled();
-
-            Assert.True(isEnabled);
+            featureFlag.IsEnabled().ShouldBeTrue();
         }
 
+        [Fact]
         public void ShouldFailUserNotListedFlag()
         {
             var featureFlag = new UnuserFeatureFlagger();
-
-            var isEnabled = featureFlag.IsEnabled();
-
-            Assert.False(isEnabled);
+            featureFlag.IsEnabled().ShouldBeFalse();
         }
     }
 }

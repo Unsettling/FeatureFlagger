@@ -7,11 +7,6 @@
     public interface IConfigurationReader
     {
         /// <summary>
-        /// The Name of the implementation.
-        /// </summary>
-        string Name { get; }
-
-        /// <summary>
         /// Read a feature from the configuration.
         /// </summary>
         /// <param name="featureName">The name of the feature.</param>

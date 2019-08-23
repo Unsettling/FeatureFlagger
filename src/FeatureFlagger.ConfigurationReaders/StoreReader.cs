@@ -12,13 +12,6 @@ namespace FeatureFlagger.ConfigurationReaders
     [Export(typeof(IConfigurationReader))]
     public class StoreReader : IConfigurationReader
     {
-        private StoreReader()
-        {
-            Name = "STORE";
-        }
-
-        public string Name { get; }
-
         public Feature Read(string featureName, IEnumerable<Feature> features)
         {
             return

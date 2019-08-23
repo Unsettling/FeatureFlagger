@@ -6,7 +6,7 @@
     using System.Composition.Hosting;
     using System.Configuration;
     using System.Linq;
-
+    using System.Reflection;
     using Behaviours;
     using ConfigurationReaders;
     using ConfigurationWriters;
@@ -30,7 +30,7 @@
         [ImportMany]
         public static IEnumerable<IBehaviour> Behaviours { get; private set; }
 
-        [ImportMany]
+        [ImportMany(typeof(IConfigurationReader))]
         private static IEnumerable<IConfigurationReader> Readers { get; set; }
 
         [ImportMany]
@@ -79,7 +79,12 @@
 
         private void SetImports()
         {
-            var configuration = new ContainerConfiguration().WithAssembly(typeof(IBehaviour).Assembly);
+            var configuration =
+                new ContainerConfiguration().WithAssemblies(
+                    new List<Assembly> {
+                        typeof(IBehaviour).Assembly,
+                        typeof(IConfigurationReader).Assembly,
+                        typeof(IConfigurationWriter).Assembly });
             var container = configuration.CreateContainer();
             container.SatisfyImports(this);
             Behaviours = container.GetExports<IBehaviour>();

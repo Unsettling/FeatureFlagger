@@ -12,6 +12,7 @@
 
     public class UserAuthorisationTests
     {
+        [Fact]
         public void ShouldPassCustomAttribute()
         {
             var attribute =
@@ -30,6 +31,7 @@
                 mockActionContext.Response.StatusCode);
         }
 
+        [Fact]
         public void ShouldNotPassCustomAttribute()
         {
             var attribute =

@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureFlagger.Tests", "tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureFlagger.ConfigurationWriters", "src\FeatureFlagger.ConfigurationWriters\FeatureFlagger.ConfigurationWriters.csproj", "{46131F8A-055F-4CD4-8A47-405DF4103C68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlagger.Authorisation", "src\FeatureFlagger.Authorisation\FeatureFlagger.Authorisation.csproj", "{1B510588-5AF7-48AD-AED6-A7F04452799D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureFlagger.Authorisation", "src\FeatureFlagger.Authorisation\FeatureFlagger.Authorisation.csproj", "{1B510588-5AF7-48AD-AED6-A7F04452799D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
