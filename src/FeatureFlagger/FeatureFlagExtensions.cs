@@ -1,9 +1,10 @@
 ﻿namespace FeatureFlagger
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
-    using Flag = Domain.Flag;
+    using global::FeatureFlagger.Domain;
 
     public static class FeatureFlaggerExtensions
     {
@@ -30,7 +31,7 @@
                 featureFlagger.GetType().Name
                     .Replace("FeatureFlagger", string.Empty);
 
-            var feature = FeatureFlagger.Reader.Read(featureName, FeatureFlagger.Features);
+            var feature = Read(featureName);
 
             // add the feature name to each flag as a property
             // (as long as it's not been added already).
@@ -44,6 +45,17 @@
                     });
 
             return feature.Flags;
+        }
+
+        private static Feature Read(string featureName)
+        {
+            return
+                FeatureFlagger.Features.ToList()
+                    .Find(
+                        f =>
+                        f.Name.Equals(
+                            featureName,
+                            StringComparison.OrdinalIgnoreCase));
         }
     }
 }

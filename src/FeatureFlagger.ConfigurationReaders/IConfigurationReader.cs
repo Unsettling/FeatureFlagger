@@ -7,14 +7,6 @@
     public interface IConfigurationReader
     {
         /// <summary>
-        /// Read a feature from the configuration.
-        /// </summary>
-        /// <param name="featureName">The name of the feature.</param>
-        /// <param name="features">The list of features.</param>
-        /// <returns>A Feature.</returns>
-        Feature Read(string featureName, IEnumerable<Feature> features);
-
-        /// <summary>
         /// Read the configuration.
         /// </summary>
         /// <returns>

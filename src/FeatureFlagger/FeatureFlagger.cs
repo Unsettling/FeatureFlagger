@@ -22,30 +22,25 @@
         private FeatureFlagger()
         {
             SetImports();
-            SetReader();
-            SetFeatures();
-            SetWriter();
+            Reader = SetReader();
+            Writer = SetWriter();
+            Features = Reader.ReadAll();
         }
 
         [ImportMany]
         public static IEnumerable<IBehaviour> Behaviours { get; private set; }
 
         [ImportMany]
-        private static IEnumerable<Lazy<IConfigurationReader, IReaderMetadata>> Readers { get; set; }
+        private static IEnumerable<Lazy<IConfigurationReader, ReaderMetadata>> Readers { get; set; }
 
         [ImportMany]
-        private static IEnumerable<Lazy<IConfigurationWriter, IWriterMetadata>> Writers { get; set; }
+        private static IEnumerable<Lazy<IConfigurationWriter, WriterMetadata>> Writers { get; set; }
 
         public static IEnumerable<Feature> Features { get; private set; }
 
         public static IConfigurationReader Reader { get; private set; }
 
         public static IConfigurationWriter Writer { get; private set; }
-
-        public static void SetFeatures()
-        {
-            Features = Reader.ReadAll();
-        }
 
         private static IConfigurationReader SetReader()
         {
@@ -54,13 +49,16 @@
                 ConfigurationManager.AppSettings["FeatureFlaggerSource"]
                 ?? Constants.Config;
 
-            return Readers.ToList()
+            var reader =
+                Readers.ToList()
                 .Find(
                     f =>
                     f.Metadata.Reader.Equals(
                         source,
                         StringComparison.OrdinalIgnoreCase))
                     .Value;
+
+            return reader;
         }
 
         private static IConfigurationWriter SetWriter()
@@ -70,13 +68,16 @@
                 ConfigurationManager.AppSettings["FeatureFlaggerSource"]
                 ?? Constants.Config;
 
-            return Writers.ToList()
+            var writer =
+                Writers.ToList()
                 .Find(
                     f =>
                     f.Metadata.Writer.Equals(
                         source,
                         StringComparison.OrdinalIgnoreCase))
                     .Value;
+
+            return writer;
         }
 
         private void SetImports()

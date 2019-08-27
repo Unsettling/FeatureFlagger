@@ -13,7 +13,8 @@
     {
         private readonly string connectionString;
 
-        private StoreWriter()
+        [ImportingConstructor]
+        public StoreWriter()
         {
             this.connectionString = ConfigurationManager.ConnectionStrings["FeatureFlagger_DB"].ConnectionString;
         }
