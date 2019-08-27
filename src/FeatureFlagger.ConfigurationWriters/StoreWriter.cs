@@ -7,19 +7,16 @@
 
     using Feature = Domain.Feature;
 
-    [Export(typeof(IConfigurationWriter))]
+    [Export(typeof(IConfigurationWriter)),
+        ExportMetadata(Constants.Writer, Constants.Store)]
     public class StoreWriter : IConfigurationWriter
     {
         private readonly string connectionString;
 
         private StoreWriter()
         {
-            this.Name = "STORE";
-
             this.connectionString = ConfigurationManager.ConnectionStrings["FeatureFlagger_DB"].ConnectionString;
         }
-
-        public string Name { get; }
 
         public void Create(Feature feature)
         {

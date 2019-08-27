@@ -30,11 +30,11 @@
         [ImportMany]
         public static IEnumerable<IBehaviour> Behaviours { get; private set; }
 
-        [ImportMany(typeof(IConfigurationReader))]
-        private static IEnumerable<IConfigurationReader> Readers { get; set; }
+        [ImportMany]
+        private static IEnumerable<Lazy<IConfigurationReader, IReaderMetadata>> Readers { get; set; }
 
         [ImportMany]
-        private static IEnumerable<IConfigurationWriter> Writers { get; set; }
+        private static IEnumerable<Lazy<IConfigurationWriter, IWriterMetadata>> Writers { get; set; }
 
         public static IEnumerable<Feature> Features { get; private set; }
 
@@ -47,34 +47,36 @@
             Features = Reader.ReadAll();
         }
 
-        private static void SetReader()
+        private static IConfigurationReader SetReader()
         {
             // set the configuation reader based on an AppSetting.
             var source =
                 ConfigurationManager.AppSettings["FeatureFlaggerSource"]
                 ?? Constants.Config;
-            Reader =
-                Readers.ToList()
-                    .Find(
-                        f =>
-                        f.Name.Equals(
-                            source,
-                            StringComparison.OrdinalIgnoreCase));
+
+            return Readers.ToList()
+                .Find(
+                    f =>
+                    f.Metadata.Reader.Equals(
+                        source,
+                        StringComparison.OrdinalIgnoreCase))
+                    .Value;
         }
 
-        private static void SetWriter()
+        private static IConfigurationWriter SetWriter()
         {
             // set the configuation writer based on an AppSetting.
             var source =
                 ConfigurationManager.AppSettings["FeatureFlaggerSource"]
                 ?? Constants.Config;
-            Writer =
-                Writers.ToList()
-                    .Find(
-                        f =>
-                        f.Name.Equals(
-                            source,
-                            StringComparison.OrdinalIgnoreCase));
+
+            return Writers.ToList()
+                .Find(
+                    f =>
+                    f.Metadata.Writer.Equals(
+                        source,
+                        StringComparison.OrdinalIgnoreCase))
+                    .Value;
         }
 
         private void SetImports()
@@ -88,8 +90,6 @@
             var container = configuration.CreateContainer();
             container.SatisfyImports(this);
             Behaviours = container.GetExports<IBehaviour>();
-            Readers = container.GetExports<IConfigurationReader>();
-            Writers = container.GetExports<IConfigurationWriter>();
         }
     }
 }

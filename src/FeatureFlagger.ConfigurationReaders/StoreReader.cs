@@ -9,9 +9,11 @@ namespace FeatureFlagger.ConfigurationReaders
 
     using FeatureFlagger.Domain;
 
-    [Export(typeof(IConfigurationReader))]
+    [Export(typeof(IConfigurationReader)),
+        ExportMetadata(Constants.Reader, Constants.Store)]
     public class StoreReader : IConfigurationReader
     {
+        // NOTE: this method is the same for ConfigReader.
         public Feature Read(string featureName, IEnumerable<Feature> features)
         {
             return

@@ -4,11 +4,6 @@
 
     public interface IConfigurationWriter
     {
-        /// <summary>
-        /// The Name of the implementation.
-        /// </summary>
-        string Name { get; }
-
         void Create(Feature feature);
 
         void Update(Feature feature);
