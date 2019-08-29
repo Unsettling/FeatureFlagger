@@ -7,8 +7,7 @@
 
     using Feature = Domain.Feature;
 
-    [Export(typeof(IConfigurationWriter)),
-        ExportMetadata(Constants.Writer, Constants.Store)]
+    [ExportWriter(Writer = Constants.Store)]
     public class StoreWriter : IConfigurationWriter
     {
         private readonly string connectionString;

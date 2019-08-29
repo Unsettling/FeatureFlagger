@@ -31,10 +31,10 @@
         public static IEnumerable<IBehaviour> Behaviours { get; private set; }
 
         [ImportMany]
-        private static IEnumerable<Lazy<IConfigurationReader, ReaderMetadata>> Readers { get; set; }
+        private static IEnumerable<ExportFactory<IConfigurationReader, ExportReaderAttribute>> Readers { get; set; }
 
         [ImportMany]
-        private static IEnumerable<Lazy<IConfigurationWriter, WriterMetadata>> Writers { get; set; }
+        private static IEnumerable<ExportFactory<IConfigurationWriter, ExportWriterAttribute>> Writers { get; set; }
 
         public static IEnumerable<Feature> Features { get; private set; }
 
@@ -49,6 +49,8 @@
                 ConfigurationManager.AppSettings["FeatureFlaggerSource"]
                 ?? Constants.Config;
 
+            var readers = Readers.ToList();
+
             var reader =
                 Readers.ToList()
                 .Find(
@@ -56,6 +58,7 @@
                     f.Metadata.Reader.Equals(
                         source,
                         StringComparison.OrdinalIgnoreCase))
+                    .CreateExport()
                     .Value;
 
             return reader;
@@ -75,6 +78,7 @@
                     f.Metadata.Writer.Equals(
                         source,
                         StringComparison.OrdinalIgnoreCase))
+                    .CreateExport()
                     .Value;
 
             return writer;
@@ -91,6 +95,7 @@
             var container = configuration.CreateContainer();
             container.SatisfyImports(this);
             Behaviours = container.GetExports<IBehaviour>();
+            Readers = container.GetExports<ExportFactory<IConfigurationReader, ExportReaderAttribute>>();
         }
     }
 }

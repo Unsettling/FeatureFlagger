@@ -1,6 +1,5 @@
 ﻿namespace FeatureFlagger
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -31,7 +30,7 @@
                 featureFlagger.GetType().Name
                     .Replace("FeatureFlagger", string.Empty);
 
-            var feature = Read(featureName);
+            var feature = Helpers.Read(featureName);
 
             // add the feature name to each flag as a property
             // (as long as it's not been added already).
@@ -45,17 +44,6 @@
                     });
 
             return feature.Flags;
-        }
-
-        private static Feature Read(string featureName)
-        {
-            return
-                FeatureFlagger.Features.ToList()
-                    .Find(
-                        f =>
-                        f.Name.Equals(
-                            featureName,
-                            StringComparison.OrdinalIgnoreCase));
         }
     }
 }

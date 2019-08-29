@@ -1,15 +1,13 @@
 namespace FeatureFlagger.ConfigurationReaders
 {
     using System.Collections.Generic;
-    using System.Composition;
     using System.Configuration;
     using System.Data.SqlClient;
     using System.Linq;
 
     using FeatureFlagger.Domain;
 
-    [Export(typeof(IConfigurationReader)),
-        ExportMetadata(Constants.Reader, Constants.Store)]
+    [ExportReader(Reader = Constants.Store)]
     public class StoreReader : IConfigurationReader
     {
         public IEnumerable<Feature> ReadAll()
