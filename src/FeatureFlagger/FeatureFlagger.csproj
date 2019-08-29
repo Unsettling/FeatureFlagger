@@ -4,8 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="System.Composition.AttributedModel" Version="1.2.0" />
-    <PackageReference Include="System.Composition.TypedParts" Version="1.2.0" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="4.5.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FeatureFlagger.Behaviours\FeatureFlagger.Behaviours.csproj" />

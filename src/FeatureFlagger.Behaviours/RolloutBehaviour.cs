@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Composition;
+    using System.ComponentModel.Composition;
     using System.Globalization;
 
     // idea lifted from Togglz.

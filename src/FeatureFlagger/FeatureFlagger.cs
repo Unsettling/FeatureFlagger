@@ -2,11 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Composition;
-    using System.Composition.Hosting;
+    using System.ComponentModel.Composition;
+    using System.ComponentModel.Composition.Hosting;
     using System.Configuration;
     using System.Linq;
-    using System.Reflection;
+
     using Behaviours;
     using ConfigurationReaders;
     using ConfigurationWriters;
@@ -28,13 +28,13 @@
         }
 
         [ImportMany]
-        public static IEnumerable<IBehaviour> Behaviours { get; private set; }
+        public static IEnumerable<Lazy<IBehaviour>> Behaviours { get; private set; }
 
         [ImportMany]
-        private static IEnumerable<ExportFactory<IConfigurationReader, ExportReaderAttribute>> Readers { get; set; }
+        private static IEnumerable<Lazy<IConfigurationReader, IReaderData>> Readers { get; set; }
 
         [ImportMany]
-        private static IEnumerable<ExportFactory<IConfigurationWriter, ExportWriterAttribute>> Writers { get; set; }
+        private static IEnumerable<Lazy<IConfigurationWriter, IWriterData>> Writers { get; set; }
 
         public static IEnumerable<Feature> Features { get; private set; }
 
@@ -49,8 +49,6 @@
                 ConfigurationManager.AppSettings["FeatureFlaggerSource"]
                 ?? Constants.Config;
 
-            var readers = Readers.ToList();
-
             var reader =
                 Readers.ToList()
                 .Find(
@@ -58,7 +56,6 @@
                     f.Metadata.Reader.Equals(
                         source,
                         StringComparison.OrdinalIgnoreCase))
-                    .CreateExport()
                     .Value;
 
             return reader;
@@ -78,7 +75,6 @@
                     f.Metadata.Writer.Equals(
                         source,
                         StringComparison.OrdinalIgnoreCase))
-                    .CreateExport()
                     .Value;
 
             return writer;
@@ -86,16 +82,16 @@
 
         private void SetImports()
         {
-            var configuration =
-                new ContainerConfiguration().WithAssemblies(
-                    new List<Assembly> {
-                        typeof(IBehaviour).Assembly,
-                        typeof(IConfigurationReader).Assembly,
-                        typeof(IConfigurationWriter).Assembly });
-            var container = configuration.CreateContainer();
-            container.SatisfyImports(this);
+            var catalog = new AggregateCatalog();
+            catalog.Catalogs.Add(new AssemblyCatalog(typeof(IBehaviour).Assembly));
+            catalog.Catalogs.Add(new AssemblyCatalog(typeof(IConfigurationReader).Assembly));
+            catalog.Catalogs.Add(new AssemblyCatalog(typeof(IConfigurationWriter).Assembly));
+
+            var container = new CompositionContainer(catalog);
+            container.ComposeParts(this);
+            Readers = container.GetExports<IConfigurationReader, IReaderData>();
+            Writers = container.GetExports<IConfigurationWriter, IWriterData>();
             Behaviours = container.GetExports<IBehaviour>();
-            Readers = container.GetExports<ExportFactory<IConfigurationReader, ExportReaderAttribute>>();
         }
     }
 }

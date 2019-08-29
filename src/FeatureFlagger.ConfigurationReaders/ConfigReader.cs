@@ -1,11 +1,13 @@
 ﻿namespace FeatureFlagger.ConfigurationReaders
 {
     using System.Collections.Generic;
+    using System.ComponentModel.Composition;
     using System.Configuration;
 
     using FeatureFlagger.Domain;
 
-    [ExportReader(Reader = Constants.Config)]
+    [Export(typeof(IConfigurationReader))]
+    [ExportMetadata("Reader", Constants.Config)]
     public class ConfigReader : IConfigurationReader
     {
         public IEnumerable<Feature> ReadAll()

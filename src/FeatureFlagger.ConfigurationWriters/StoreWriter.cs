@@ -1,13 +1,14 @@
 ﻿namespace FeatureFlagger.ConfigurationWriters
 {
-    using System.Composition;
+    using System.ComponentModel.Composition;
     using System.Configuration;
     using System.Data.SqlClient;
     using System.Text;
 
     using Feature = Domain.Feature;
 
-    [ExportWriter(Writer = Constants.Store)]
+    [Export(typeof(IConfigurationWriter))]
+    [ExportMetadata("Writer", Constants.Store)]
     public class StoreWriter : IConfigurationWriter
     {
         private readonly string connectionString;

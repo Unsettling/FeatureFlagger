@@ -1,7 +1,7 @@
 ﻿namespace FeatureFlagger.Behaviours
 {
     using System;
-    using System.Composition;
+    using System.ComponentModel.Composition;
     using System.Configuration;
     using System.Data.SqlClient;
 

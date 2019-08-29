@@ -31,7 +31,7 @@ namespace FeatureFlagger.Authorisation
                     .FirstOrDefault(
                         u =>
                         u.GetType().Name.ToUpperInvariant().Contains(Constants.User));
-            var behaviour = userBehaviour?.Behaviour();
+            var behaviour = userBehaviour?.Value.Behaviour();
             var properties =
                 new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
                     {

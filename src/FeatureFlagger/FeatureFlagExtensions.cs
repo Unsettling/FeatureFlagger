@@ -19,7 +19,7 @@
                              b.GetType()
                                  .Name.ToUpperInvariant()
                                  .Contains(flag.Name.ToUpperInvariant()))
-                     let func = behaviour.Behaviour()
+                     let func = behaviour.Value.Behaviour()
                      where func(flag.Properties) == false
                      select flag).Any();
         }
