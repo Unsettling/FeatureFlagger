@@ -16,7 +16,7 @@
         [ImportingConstructor]
         public StoreWriter()
         {
-            this.connectionString = ConfigurationManager.ConnectionStrings["FeatureFlagger_DB"].ConnectionString;
+            this.connectionString = ConfigurationManager.ConnectionStrings["FeatureFlagger"].ConnectionString;
         }
 
         public void Create(Feature feature)

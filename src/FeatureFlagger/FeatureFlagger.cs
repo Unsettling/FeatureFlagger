@@ -44,12 +44,10 @@
 
         private static IConfigurationReader SetReader()
         {
-            // set the configuation reader based on an AppSetting.
+            // set the configuration reader based on an AppSetting.
             var source =
                 ConfigurationManager.AppSettings["FeatureFlaggerSource"]
                 ?? Constants.Config;
-
-            var readers = Readers.ToList();
 
             var reader =
                 Readers.ToList()
@@ -66,10 +64,15 @@
 
         private static IConfigurationWriter SetWriter()
         {
-            // set the configuation writer based on an AppSetting.
+            // set the configuration writer based on an AppSetting.
             var source =
-                ConfigurationManager.AppSettings["FeatureFlaggerSource"]
-                ?? Constants.Config;
+                ConfigurationManager.AppSettings["FeatureFlaggerSource"];
+
+            // if a writer isn't required then don't proceed.
+            if (string.IsNullOrEmpty(source))
+            {
+                return null;
+            }
 
             var writers =
                 Writers.ToList()

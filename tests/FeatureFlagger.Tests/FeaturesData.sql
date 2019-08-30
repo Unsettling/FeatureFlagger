@@ -1,4 +1,4 @@
-USE [IntermediaryManagement.DB.Test]
+USE [FeatureFlagger]
 GO
 ALTER TABLE [dbo].[UserRole] DROP CONSTRAINT [FK_UserRole_User]
 GO

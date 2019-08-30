@@ -12,7 +12,9 @@
     {
         public IEnumerable<Feature> ReadAll()
         {
-            return (List<Feature>)ConfigurationManager.GetSection("features");
+            var features = (List<Feature>)ConfigurationManager.GetSection("features");
+
+            return features;
         }
     }
 }

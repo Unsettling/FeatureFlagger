@@ -1,13 +1,15 @@
-﻿namespace IntermediaryManagement.Api.FeatureFlagger
+﻿namespace FeatureFlagger.ConfigurationReaders
 {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Globalization;
     using System.Linq;
     using System.Xml;
-    using global::FeatureFlagger.Domain;
 
-    public class FeaturesSection : IConfigurationSectionHandler
+    using FeatureFlagger.Domain;
+
+    public class FeaturesSection : ConfigurationSection
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes", MessageId = "System.Xml.XmlNode", Justification = "Standard method")]
         public object Create(
