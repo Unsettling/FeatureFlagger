@@ -71,7 +71,7 @@
                 ConfigurationManager.AppSettings["FeatureFlaggerSource"]
                 ?? Constants.Config;
 
-            var writer =
+            var writers =
                 Writers.ToList()
                 .Find(
                     f =>
@@ -81,7 +81,7 @@
                     .CreateExport()
                     .Value;
 
-            return writer;
+            return writers;
         }
 
         private void SetImports()
@@ -96,6 +96,7 @@
             container.SatisfyImports(this);
             Behaviours = container.GetExports<IBehaviour>();
             Readers = container.GetExports<ExportFactory<IConfigurationReader, ExportReaderAttribute>>();
+            Writers = container.GetExports<ExportFactory<IConfigurationWriter, ExportWriterAttribute>>();
         }
     }
 }
