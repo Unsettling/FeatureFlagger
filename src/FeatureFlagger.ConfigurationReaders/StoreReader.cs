@@ -1,5 +1,6 @@
 namespace FeatureFlagger.ConfigurationReaders
 {
+    using System;
     using System.Collections.Generic;
     using System.Composition;
     using System.Configuration;
@@ -12,9 +13,20 @@ namespace FeatureFlagger.ConfigurationReaders
     [ExportMetadata("Reader", Constants.Store)]
     public class StoreReader : IConfigurationReader
     {
+        public Feature Read(string featureName, IEnumerable<Feature> features)
+        {
+            return
+                features.ToList()
+                    .Find(
+                        f =>
+                        f.Name.Equals(
+                            featureName,
+                            StringComparison.OrdinalIgnoreCase));
+        }
+
         public IEnumerable<Feature> ReadAll()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["FeatureFlagger_DB"].ConnectionString;
+            var connectionString = ConfigurationManager.ConnectionStrings["FeatureFlagger"].ConnectionString;
 
             const string QueryString =
                 "SELECT Features.Name, Flags.Name, FlagProperties.PropertyKey, FlagProperties.PropertyValue "

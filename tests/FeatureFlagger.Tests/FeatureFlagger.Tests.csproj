@@ -24,6 +24,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\FeatureFlagger.Authorisation\FeatureFlagger.Authorisation.csproj" />
     <ProjectReference Include="..\..\src\FeatureFlagger.ConfigurationReaders\FeatureFlagger.ConfigurationReaders.csproj" />
-    <ProjectReference Include="..\..\src\FeatureFlagger\FeatureFlagger.csproj" />
+    <ProjectReference Include="..\..\src\FeatureFlagger\FeatureFlagger.Core.csproj" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace FeatureFlagger
+﻿namespace FeatureFlagger.Core
 {
     using System;
     using System.Collections.Generic;

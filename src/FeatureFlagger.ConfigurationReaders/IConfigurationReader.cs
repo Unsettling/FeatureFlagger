@@ -6,6 +6,8 @@
 
     public interface IConfigurationReader
     {
+        Feature Read(string featureName, IEnumerable<Feature> features);
+
         /// <summary>
         /// Read the configuration.
         /// </summary>

@@ -1,5 +1,6 @@
 ﻿namespace FeatureFlagger.Tests
 {
+    using FeatureFlagger.Core;
     using Shouldly;
     using Xunit;
 

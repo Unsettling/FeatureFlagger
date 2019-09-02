@@ -1,4 +1,4 @@
-﻿namespace FeatureFlagger
+﻿namespace FeatureFlagger.Core
 {
     public interface IFeatureFlagger
     {

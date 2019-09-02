@@ -1,4 +1,4 @@
-﻿namespace FeatureFlagger
+﻿namespace FeatureFlagger.Core
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -30,7 +30,7 @@
                 featureFlagger.GetType().Name
                     .Replace("FeatureFlagger", string.Empty);
 
-            var feature = Helpers.Read(featureName);
+            var feature = FeatureFlagger.Reader.Read(featureName, FeatureFlagger.Features);
 
             // add the feature name to each flag as a property
             // (as long as it's not been added already).

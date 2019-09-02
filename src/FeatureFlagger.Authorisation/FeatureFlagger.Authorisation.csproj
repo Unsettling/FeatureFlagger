@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FeatureFlagger\FeatureFlagger.csproj" />
+    <ProjectReference Include="..\FeatureFlagger\FeatureFlagger.Core.csproj" />
   </ItemGroup>
 
 </Project>

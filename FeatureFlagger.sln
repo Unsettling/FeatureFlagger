@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureFlagger", "src\FeatureFlagger\FeatureFlagger.csproj", "{9D15A2B6-FAEB-4A28-A25E-C58BCF327CC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureFlagger.Core", "src\FeatureFlagger\FeatureFlagger.Core.csproj", "{9D15A2B6-FAEB-4A28-A25E-C58BCF327CC2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureFlagger.Behaviours", "src\FeatureFlagger.Behaviours\FeatureFlagger.Behaviours.csproj", "{0F866C20-3765-41C8-9A10-BBE4F1F08AD4}"
 EndProject
