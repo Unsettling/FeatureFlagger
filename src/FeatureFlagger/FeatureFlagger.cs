@@ -46,7 +46,7 @@
         {
             // set the configuration reader based on an AppSetting.
             var source =
-                ConfigurationManager.AppSettings["FeatureFlaggerSource"]
+                ConfigurationManager.AppSettings["FeatureFlagger.Reader"]
                 ?? Constants.Config;
 
             var reader =
@@ -66,7 +66,7 @@
         {
             // set the configuration writer based on an AppSetting.
             var source =
-                ConfigurationManager.AppSettings["FeatureFlaggerSource"];
+                ConfigurationManager.AppSettings["FeatureFlagger.Writer"];
 
             // if a writer isn't required then don't proceed.
             if (string.IsNullOrEmpty(source))

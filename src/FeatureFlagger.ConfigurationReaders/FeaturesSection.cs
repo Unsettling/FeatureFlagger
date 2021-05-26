@@ -9,7 +9,7 @@
 
     using FeatureFlagger.Domain;
 
-    public class FeaturesSection : ConfigurationSection
+    public sealed class FeaturesSection : ConfigurationSection
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes", MessageId = "System.Xml.XmlNode", Justification = "Standard method")]
         public object Create(
