@@ -1,4 +1,6 @@
-﻿namespace FeatureFlagger.Example.Console
+﻿using FeatureFlagger.Core;
+
+namespace FeatureFlagger.Example.Console
 {
     public class Program
     {

@@ -1,6 +1,8 @@
 ﻿namespace FeatureFlagger.Example.Console
 {
-    public class ExampleFeatureFlag : IFeatureFlag
+    using FeatureFlagger.Core;
+
+    public class ExampleFeatureFlag : IFeatureFlagger
     {
     }
 }

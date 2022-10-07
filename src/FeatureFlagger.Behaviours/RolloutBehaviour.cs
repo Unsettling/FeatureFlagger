@@ -22,17 +22,27 @@
         {
             if (basis.ToLowerInvariant().Equals("user"))
             {
-                return this.Username();
+                return this.Username;
             }
 
             throw new ArgumentException("'basis' was not understood.", "basis");
         }
 
-        public string Username()
+        public string Username
         {
-            var r = new Random();
-            var rand = r.Next().ToString(CultureInfo.InvariantCulture);
-            return "username" + rand;
+            get
+            {
+                var r = new Random();
+                var rand = r.Next().ToString(CultureInfo.InvariantCulture);
+                return "username" + rand;
+            }
+
+            set { throw new NotImplementedException(); }
+        }
+
+        public bool UserHasFeature(string userName, string featureName)
+        {
+            throw new NotImplementedException();
         }
     }
 }

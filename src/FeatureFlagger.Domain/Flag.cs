@@ -1,12 +1,15 @@
 ﻿namespace FeatureFlagger.Domain
 {
+    using System;
     using System.Collections.Generic;
 
     public class Flag
     {
         public Flag(string name)
         {
-            this.Properties = new Dictionary<string, string>();
+            this.Properties =
+                new Dictionary<string, string>(
+                    StringComparer.OrdinalIgnoreCase);
             this.Name = name;
         }
 
@@ -18,11 +21,11 @@
 
         public string Name { get; private set; }
 
-        public Dictionary<string, string> Properties { get; private set; }
+        public Dictionary<string, string> Properties { get; }
 
-        public Flag Add(string key, string val)
+        public Flag Add(string key, string value)
         {
-            this.Properties.Add(key, val);
+            this.Properties.Add(key, value);
             return this;
         }
     }

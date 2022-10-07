@@ -1,30 +1,31 @@
-namespace FeatureFlagger.ConfigurationReaders
+﻿namespace FeatureFlagger.ConfigurationReaders
 {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Globalization;
     using System.Linq;
     using System.Xml;
 
     using FeatureFlagger.Domain;
 
-    public class FeaturesSection
+    public sealed class FeaturesSection : ConfigurationSection
     {
-        /*
-        public object Create(object parent, object configContext, XmlNode section)
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes", MessageId = "System.Xml.XmlNode", Justification = "Standard method")]
+        public object Create(
+            object parent,
+            object configContext,
+            XmlNode section)
         {
             var features = new List<Feature>();
 
             foreach (XmlNode childNode in section.ChildNodes)
             {
                 var flag = EnabledFlag(childNode.Attributes);
-                var feature = new Feature { Name = childNode.Attributes.GetNamedItem("name").InnerText };
+                var feature =
+                    new Feature(
+                        childNode.Attributes?.GetNamedItem("name").InnerText);
                 feature.Flags.Add(flag);
-
-                if (!childNode.HasChildNodes)
-                {
-                    continue;
-                }
 
                 foreach (XmlNode node in childNode.ChildNodes)
                 {
@@ -35,19 +36,15 @@ namespace FeatureFlagger.ConfigurationReaders
 
                     var attrs =
                         node.Attributes.Cast<XmlAttribute>()
-                        .ToDictionary(attr => attr.Name, attr => attr.InnerText);
+                            .ToDictionary(
+                                attr => attr.Name,
+                                attr => attr.InnerText);
 
                     // title case is required when looking up Behaviours.
                     var info = new CultureInfo("en-US").TextInfo;
-                    // NOTE: this was ToTitleCase ...
                     var name = info.ToLower(node.Name);
 
-                    feature.Flags.Add(
-                        new Flag
-                            {
-                               Name = name,
-                               Properties = attrs
-                            });
+                    feature.Flags.Add(new Flag(name, attrs));
                 }
 
                 features.Add(feature);
@@ -66,20 +63,15 @@ namespace FeatureFlagger.ConfigurationReaders
 
             if (string.IsNullOrWhiteSpace(enabled))
             {
-                throw new Exception("TODO");
+                throw new ArgumentException("enabled attribute is required");
             }
 
-            var flag = new Flag
-                {
-                    Name = "Enabled",
-                    Properties = new Dictionary<string, string>
-                        {
-                            { "enabled", enabled }
-                        }
-                };
+            var flag =
+                new Flag(
+                    "Enabled",
+                    new Dictionary<string, string> { { "enabled", enabled } });
 
             return flag;
         }
- */
     }
 }

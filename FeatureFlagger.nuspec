@@ -2,26 +2,23 @@
 <package >
   <metadata>
     <id>FeatureFlagger</id>
-    <version>0.0.1-alpha003</version>
+    <version>0.0.1-alpha004</version>
     <title>Feature Flagger</title>
     <authors>Richard Bogle</authors>
     <owners>boggin</owners>
-    <licenseUrl>https://github.com/Boggin/FeatureFlagger/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/Boggin/FeatureFlagger</projectUrl>
-    <iconUrl>https://github.com/Boggin/FeatureFlagger/blob/master/assets/flag-32x32.png</iconUrl>
+    <licenseUrl>https://github.com/Unsettling/FeatureFlagger/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/Unsettling/FeatureFlagger</projectUrl>
+    <iconUrl>https://github.com/Unsettling/FeatureFlagger/raw/master/assets/flag-64x64.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Yet another Feature Flag (or Feature Toggle or Feature Switch) for your code.</description>
-    <releaseNotes>alpha.</releaseNotes>
-    <copyright>Copyright 2015</copyright>
+    <releaseNotes>alpha</releaseNotes>
+    <copyright>Copyright 2017 Unsettling Limited</copyright>
     <tags>featureflagger feature flag toggle switch featureswitch featuretoggle featureflag</tags>
     <dependencies>
-      <dependency id="Microsoft.Composition" version="1.0.30" />
+      <dependency id="System.Composition" version="1.1.0" />
     </dependencies>
   </metadata>
   <files>
-      <file src="FeatureFlagger\bin\Release\FeatureFlagger.Behaviours.dll" target="lib\net45\FeatureFlagger.Behaviours.dll" />
-      <file src="FeatureFlagger\bin\Release\FeatureFlagger.ConfigurationReaders.dll" target="lib\net45\FeatureFlagger.ConfigurationReaders.dll" />
-      <file src="FeatureFlagger\bin\Release\FeatureFlagger.dll" target="lib\net45\FeatureFlagger.dll" />
-      <file src="FeatureFlagger\bin\Release\FeatureFlagger.Domain.dll" target="lib\net45\FeatureFlagger.Domain.dll" />
+    <file src="src\FeatureFlagger\bin\Release\netstandard2.0\*.dll" target="lib/netstandard2.0/" />
   </files>
 </package>

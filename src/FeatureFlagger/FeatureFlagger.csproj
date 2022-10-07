@@ -1,9 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>netstandard1.3</TargetFramework>
-  </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FeatureFlagger.Behaviours\FeatureFlagger.Behaviours.csproj" />
-    <ProjectReference Include="..\FeatureFlagger.ConfigurationReaders\FeatureFlagger.ConfigurationReaders.csproj" />
-  </ItemGroup>
-</Project>
